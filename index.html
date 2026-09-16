@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
     <title>To-Do List - Tijasp</title>
 </head>
 <body>
@@ -18,40 +22,63 @@
     <main>
         <section>
             <!--==============================  TOOL BAR  ======================================-->
-            <div>
-                <button>
+            <div class="toolBar">
+                <button id="toolBar__boutonNouvelleTache">
                     <img src="assets/plus.svg" alt="Icone du signe plus">
                     AJOUTER UNE TÂCHE
                 </button>
-                <h2>TRIER PAR:</h2>
-                <label for="priorite">
-                    <input id="priorite" type="radio" name="choix-tri">
-                    <span>Priorité</span>
-                </label>
-                <label for="expiration">
-                    <input id="expiration" type="radio" name="choix-tri">
-                    <span>Expiration</span>
-                </label>
+                <div class="toolBar__choixTri">
+                    <h2>TRIER PAR:</h2>
+                    <div class="toolBar__choixBoutonRadio">
+                        <label for="priorite">
+                            <input id="priorite" type="radio" name="choix-tri" checked>
+                            <span class="toolBar__nomBoutonRadio">Priorité</span>
+                        </label>
+
+                        <label for="expiration">
+                            <input id="expiration" type="radio" name="choix-tri">
+                            <span class="toolBar__nomBoutonRadio">Expiration</span>
+                        </label>
+                    </div>
+                </div>
             </div>
 
             <!--============================  ACTIVE TASKS  ====================================-->
             <section>
-                <table>
+                <table class="activeTasks">
                     <thead>
                         <tr>
-                            <th>
+                            <th>    
                                 <button>
                                     <img src="assets/down-arrow.svg" alt="Icone d'une flèche pointant vers le bas">
                                 </button>
-                                Tâches actives <span>0</span>
+                                Tâches actives
+                                <span class="tableHeader__compteurTaches">0</span>
                             </th>
                             <th>Priorité</th>
                             <th>Expiration</th>
                             <th>Status</th>
                         </tr>
                     </thead>
+
+                    <!--============ Futures rows of actives tasks will be insered below ================--> 
                     <tbody>
-            <!--============ Futures rows of actives tasks will be insered here ================-->            
+                        <tr>
+                            <td>
+                                <button>
+                                    <img src="assets/trashbin.svg" alt="Icone d'une poubelle">
+                                </button>
+                                Finir la maquette de la to-do list
+                            </td>
+                            <td><p class="haute-prio">Haute</p></td>
+                            <td>31 Sept. 2026</td>
+                            <td>
+                                <select name="choix-status" id="choix-status">
+                                    <option value="tache-en-cours">En cours ⏳</option>
+                                    <option value="tache-finie">Terminé ✅ </option>
+                                </select>
+                            </td>
+                        </tr>        
                     </tbody>
                 </table>
             </section>
@@ -61,19 +88,21 @@
                 <table>
                     <thead>
                         <tr> 
-                            <th>
+                            <th>    
                                 <button>
                                     <img src="assets/down-arrow.svg" alt="Icone d'une flèche pointant vers le bas">
                                 </button>
-                                Tâches Terminées <span>0</span>
+                                Tâches Terminées
+                                <span class="tableHeader__compteurTaches">0</span>
                             </th>
                             <th>Priorité</th>
                             <th>Expiration</th>
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-            <!--=========== Futures rows of finished tasks will be insered here ================-->      
+
+                    <!--============ Futures rows of finished tasks will be insered below ================--> 
+                    <tbody>     
                     </tbody>
                 </table>
             </section>
@@ -82,8 +111,7 @@
     </main>
 
     <footer>
-        <p>© 2026 Tijasp. Tout droits réservés.</p>
-        <a href="https://github.com/tijasp">Github</a>
+        <p>© 2026 Tijasp. Tous droits réservés.</p>
     </footer>
 </body> 
 </html>

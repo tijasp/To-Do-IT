@@ -1,0 +1,350 @@
+:root {
+    /* Colors */
+    --gris-fonce: #2E2E2E;
+    --gris-clair: #EDEDED;
+    --bleu: #276BFF;
+    --rouge: #FF505A;
+    --rouge-clair: #FF9F9F;
+    --orange: #FFC78F;
+    --vert: #A8E6A3;
+
+    /* Text configuration */
+    --header-font: "Bebas Neue";
+    --button-font: "Bebas Neue";
+    --title-font: "Inter";
+    --body-font: "Inter";
+
+    --header-font-size: 3rem;
+    --button-font-size: 1rem;
+    --title-font-size: 1rem;
+    --body-font-size: 0.875rem;
+
+    --title-weight: 500;
+}
+
+/* ================= General configuration ================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--gris-clair);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: var(--header-font);
+    font-size: var(--header-font-size);
+}
+
+h2, 
+th,
+.choixTri__name {
+    font-family: var(--title-font);
+    font-size: var(--title-font-size);
+    font-weight: var(--title-weight);
+}
+
+td, 
+p {
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+}
+
+button {
+    font-family: var(--button-font);
+    font-size: var(--button-font-size);
+    cursor: pointer;
+    border-style: none;
+    background-color: transparent; 
+    appearance: none;
+}
+
+button:active {
+    opacity: 0.7;
+}
+
+main,
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-bottom: 0.5rem;
+}
+
+/* ====================== ANIMATION =======================*/
+
+@keyframes horizontal-shaking {
+    0% { transform: rotate(10deg); }
+    5% { transform: rotate(0); }
+    10% { transform: rotate(-10deg); }
+    15% { transform: rotate(0); }
+    20% { transform: rotate(10deg); }
+    25% { transform: rotate(0); }
+    30% { transform: rotate(-10deg); }
+    35% { transform: rotate(0); }
+    40% { transform: rotate(10deg); }
+    45% { transform: rotate(0); }
+    50% { transform: rotate(-10deg); }
+    55% { transform: rotate(0); }
+    60% { transform: rotate(10deg); }
+    65% { transform: rotate(0); }
+    70% { transform: rotate(-10deg); }
+    75% { transform: rotate(0); }
+    80% { transform: rotate(10deg); }
+    85% { transform: rotate(0); }
+    90% { transform: rotate(-10deg); }
+    100% { transform: rotate(0); }
+}
+
+/* ======================== HEADER ========================*/
+
+header {
+    height: 6.25rem;
+
+    color: white;
+    background-color: var(--gris-fonce);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ======================== TOOLBAR =======================*/
+
+.toolBar {
+    width: 67.5rem;
+    margin-top: 4rem;
+
+    background-color: white;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#toolBar__boutonNouvelleTache {
+    width: 9rem;
+    height: 2rem;
+    margin: 1rem 0 1rem 1rem;
+
+    background-color: var(--bleu);
+    color: white;
+    border-radius: 1.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+#toolBar__boutonNouvelleTache:hover {
+    background-color: #0043d3;
+}
+
+/* Adjusting the SVG size by removing the margin to center the button elements */
+#toolBar__boutonNouvelleTache img {
+    margin-left: -0.25rem;
+}
+
+.toolBar__choixTri {
+    margin: 1rem 1rem 1rem 0;
+    
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toolBar__choixTri h2 {
+    font-family: var(--button-font);
+    font-size: 1.25rem;
+}
+
+.toolBar__choixBoutonRadio {
+    width: 12.5rem;
+    height: 2rem;
+
+    background-color: var(--gris-clair);
+    border-radius: 0.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.125rem;
+}
+
+/* Hiding initial radio button instead of removing it for accessibily issues*/
+.toolBar__choixBoutonRadio label input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toolBar__choixBoutonRadio label .toolBar__nomBoutonRadio {
+    width: 6rem;
+    height: 1.625rem;
+    
+    font-family: var(--title-font);
+    font-size: var(--title-font-size);
+    font-weight: var(--title-weight);
+    border-radius: 0.250rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* New CSS style on checked button */
+.toolBar__choixBoutonRadio label input:checked + .toolBar__nomBoutonRadio {
+    background-color: var(--bleu);
+    color: white;
+    transition: all .15s ease-in-out;
+}
+
+/* ================== GENERAL TABLE CONFIG  ===============*/
+
+table {
+    width: 67.5rem;
+    margin-top: 0.5rem;
+
+    background-color: white;
+    
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.tableHeader__compteurTaches {
+    padding: 0.1rem;
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    color: white;
+    background-color: var(--bleu);
+    border-radius: 0.625rem;
+}
+
+th button,
+td button {
+    padding-right: 0.5rem;
+    vertical-align: middle;
+}
+
+td button:hover {
+    animation: horizontal-shaking 3s ease infinite;
+}
+
+th {
+    padding: 1rem;
+}
+
+td {
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+    padding: 0.75rem;
+}
+
+td,
+th {
+    border: 0.125rem solid var(--gris-clair);
+}
+
+/* ================== TABLE COLUMNS CONFIG ================*/
+
+/* Column Tâche */
+th:nth-child(1), 
+td:nth-child(1) { 
+    width: 42.5rem; 
+    white-space: normal;
+    text-align: start;
+    border-left: none;
+} 
+
+/* Column Priorité */
+th:nth-child(2), 
+td:nth-child(2) {
+    width: 8.125rem;
+    text-align: center;
+} 
+
+/* Column Expiration */
+th:nth-child(3), 
+td:nth-child(3) {
+    width: 8.125rem;
+    text-align: center;
+}
+
+/* Column Status */
+th:nth-child(4), 
+td:nth-child(4) {
+    width: 8.125rem;
+    text-align: center;
+    border-right: none;
+} 
+
+/* ================= PRIORITY COLORS CONFIG ===============*/
+
+.haute-prio {
+    width: 4rem;
+    padding: 0.25rem 0;
+    margin: auto;
+    background-color: var(--rouge-clair);
+    border-radius: 1.25rem;
+}
+
+.moyenne-prio {
+    width: 5.25rem;
+    padding: 0.25rem 0;
+    margin: auto;
+    background-color: var(--orange);
+    border-radius: 1.25rem;
+}
+
+.faible-prio {
+    width: 4rem;
+    padding: 0.25rem 0;
+    margin: auto;
+    background-color: var(--vert);
+    border-radius: 1.25rem;
+}
+
+/* =================== SELECT MENU CONFIG  ================*/
+
+select {
+    width: 100%;
+    height: 1.6rem;
+    padding-right: 1rem;
+
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+    text-align: center;
+    
+    appearance: none;
+    border: none;
+    cursor: pointer;
+
+    background: no-repeat url(assets/down-arrow.svg) right 0.3rem center;
+    background-size: 0.6rem;
+}
+
+select option {
+    color: var(--gris-fonce);
+    background-color: var(--gris-clair);
+    border: none;
+}
+
+select:hover {
+    color: #fff;
+    background-color: var(--bleu);
+    border-radius: 4px;
+}
