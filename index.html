@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>To-Do List - Tijasp</title>
+</head>
+<body>
+    <!--======================================   HEADER   ======================================-->
+
+    <header>
+        <h1>TO-DO LIST</h1>
+    </header>
+
+    <!--======================================    MAIN    ======================================-->
+
+    <main>
+        <section>
+            <!--==============================  TOOL BAR  ======================================-->
+            <div>
+                <button>
+                    <img src="assets/plus.svg" alt="Icone du signe plus">
+                    AJOUTER UNE TÂCHE
+                </button>
+                <h2>TRIER PAR:</h2>
+                <label for="priorite">
+                    <input id="priorite" type="radio" name="choix-tri">
+                    <span>Priorité</span>
+                </label>
+                <label for="expiration">
+                    <input id="expiration" type="radio" name="choix-tri">
+                    <span>Expiration</span>
+                </label>
+            </div>
+
+            <!--============================  ACTIVE TASKS  ====================================-->
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <button>
+                                    <img src="assets/down-arrow.svg" alt="Icone d'une flèche pointant vers le bas">
+                                </button>
+                                Tâches actives <span>0</span>
+                            </th>
+                            <th>Priorité</th>
+                            <th>Expiration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <!--============ Futures rows of actives tasks will be insered here ================-->            
+                    </tbody>
+                </table>
+            </section>
+
+            <!--===========================  FINISHED TASKS  ===================================--> 
+            <section>
+                <table>
+                    <thead>
+                        <tr> 
+                            <th>
+                                <button>
+                                    <img src="assets/down-arrow.svg" alt="Icone d'une flèche pointant vers le bas">
+                                </button>
+                                Tâches Terminées <span>0</span>
+                            </th>
+                            <th>Priorité</th>
+                            <th>Expiration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <!--=========== Futures rows of finished tasks will be insered here ================-->      
+                    </tbody>
+                </table>
+            </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Tijasp. Tout droits réservés.</p>
+        <a href="https://github.com/tijasp">Github</a>
+    </footer>
+</body> 
+</html>
