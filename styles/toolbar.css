@@ -85,7 +85,7 @@
     background-color: var(--white-comp);
 
     /* display switch to "flex" on "New task" button event */
-    display: flex; 
+    display: none; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
