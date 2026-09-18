@@ -1,0 +1,47 @@
+header {
+    width: 100%;
+    padding: 0 2.25rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--electric-sapphire);
+    text-align: center;
+}
+
+header h2 {
+    font-family: var(--slogan-font);
+    font-size: var(--slogan-font-size);
+    line-height: var(--slogan-line-height);
+    letter-spacing: var(--slogan-letter-spacing);
+    color: #FFF;
+}
+
+.header__spacer {
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+}
+
+#theme-toggler {
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+}
+
+#theme-toggler:hover {
+    opacity: 80%;
+}
+
+#theme-toggler:active {
+    opacity: 100%;
+}
+
+.header__titles {
+    margin: 1rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

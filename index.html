@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do IT</title>
+    <link rel="stylesheet" href="styles/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz@14..32&family=Quicksand&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header__spacer"></div>
+        <div class="header__titles">
+            <h1>TO-DO IT</h1>
+            <h2>Small tasks, big achievements.</h2>
+        </div>
+        <button id="theme-toggler">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.815 16.6597C21.1177 15.2219 21.7592 13.8772 22.6862 12.7373C23.6132 11.5974 24.7989 10.6952 26.1448 10.1058C27.0033 9.72739 26.8168 8.45908 25.8864 8.34462C17.8464 7.35877 10.3325 12.7015 8.63405 20.688C6.83035 29.1803 12.2377 37.5249 20.7153 39.3286C29.1928 41.1305 37.5282 35.7065 39.3337 27.2142C39.5976 25.9726 39.7117 24.7038 39.6734 23.4351C39.6439 22.4954 38.3922 22.1963 37.9399 23.0215C36.9876 24.7649 35.4984 26.1545 33.6934 26.984C31.8884 27.8135 29.8639 28.0386 27.9208 27.6258C25.5243 27.1139 23.4294 25.6709 22.0968 23.6144C20.7642 21.5579 20.3031 19.0562 20.815 16.6597ZM10.4396 21.072C11.0514 18.1883 12.5652 15.5742 14.7618 13.6083C16.9584 11.6423 19.7238 10.4266 22.6574 10.1372C20.8316 11.6954 19.53 13.8295 19.0094 16.2757C18.7056 17.6995 18.6852 19.1693 18.9494 20.601C19.2136 22.0328 19.7573 23.3984 20.5493 24.6201C21.3413 25.8417 22.3662 26.8954 23.5654 27.7209C24.7647 28.5464 26.1148 29.1276 27.5387 29.4314C29.3257 29.8109 31.1789 29.7424 32.9331 29.2322C34.6873 28.722 36.2881 27.7858 37.5928 26.5071L37.5282 26.8302C35.935 34.3255 28.5799 39.1126 21.0993 37.5231C13.6205 35.9317 8.8482 28.5692 10.4414 21.0738" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M23.9998 45.2308C35.7247 45.2308 45.2305 35.7249 45.2305 24C45.2305 12.2751 35.7247 2.76923 23.9998 2.76923C12.2749 2.76923 2.76901 12.2751 2.76901 24C2.76901 35.7249 12.2749 45.2308 23.9998 45.2308ZM23.9998 47.0769C36.7456 47.0769 47.0767 36.7458 47.0767 24C47.0767 11.2542 36.7456 0.923077 23.9998 0.923077C11.2539 0.923077 0.922852 11.2542 0.922852 24C0.922852 36.7458 11.2539 47.0769 23.9998 47.0769Z" fill="white"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Toolbar -->
+        <section class="toolbar">
+
+            <!-- Toolbar Header -->
+            <section class="toolbar__header">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M18 10.2857H10.2857V18H7.71429V10.2857H0V7.71429H7.71429V0H10.2857V7.71429H18V10.2857Z" fill="white"/>
+                    </svg>
+                    NEW TASK
+                </button>
+                <div class="toolbarHeader__sortPart">
+                    <h2>Sort by</h2>
+                    <div class="toolbarHeader__RadioButtonGroup">
+                        <label for="priority-level">
+                            <input id="priority-level" type="radio" name="sort_choice" checked>
+                            <span class="radioButton_name">Priority</span>
+                        </label>
+
+                        <label for="due-date">
+                            <input id="due-date" type="radio" name="sort_choice">
+                            <span class="radioButton_name">Due date</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Toolbar "Task Creator" expansion -->
+            <section class="toolbar__taskCreator">
+                <form class="taskCreator__form" action="">
+                    <input type="text" id="new_task_name" maxlength="60" placeholder="Enter the new task name. Ex: Optimize page loading" required>
+                    <select id="new_task_priority">
+                        <option value="">Select priority level</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <div class="form__dateSelector">
+                    <label for="date">Due Date:</label>
+                    <input name="date" id="new_task_date" type="date">
+                    </div>
+                </form>
+                <div class="taskCreator__buttonGroup">
+                    <button id="taskCreator__confirmButton">
+                        CONFIRM
+                    </button>
+                    <button id="taskCreator__cancelButton">
+                        CANCEL
+                    </button>
+                </div>
+            </section>
+        </section>
+    </main>
+
+</body>
+<footer>
+    <h2>© 2026 - Made with ❤️ by Tijasp.</h2>
+</footer>
+</html>
