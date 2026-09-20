@@ -36,7 +36,8 @@
     box-sizing: border-box;
 }
 
-button {
+button,
+input[type="submit"] {
     background: none;
 	border: none;
     cursor: pointer;
@@ -58,12 +59,9 @@ a {
     display: none;
 }
 
-button:hover {
+button:hover,
+input[type="submit"] {
     opacity: 75%;
-}
-
-button:active {
-    opacity: 100%;
 }
 
 h1 {
@@ -85,7 +83,8 @@ h3 {
 }
 
 button,
-label {
+label,
+input[type="submit"] {
     font-family: var(--button-font);
     font-size: var(--button-font-size);
     font-weight: var(--button-font-weight);
