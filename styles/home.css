@@ -47,6 +47,11 @@ main {
     gap: 0.5rem;
 }
 
+#createTask__button.active {
+  color: white;
+  background-color: var(--electric-sapphire);
+}
+
 #createTask__button svg {
     fill: var(--black-comp);
 }
@@ -131,7 +136,7 @@ main {
     border-radius: 5px;
     box-shadow: var(--box-shadow);
 
-    display: none; /* Swtiched to flex with "Create task" button */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -188,10 +193,6 @@ main {
     justify-content: center;
     align-self: stretch;
     gap: 0.5rem;
-}
-
-.taskCreator__buttonGroup button {
-    font-size: var(--body-font-size);
 }
 
 #addNewTask-button {
