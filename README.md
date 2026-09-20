@@ -17,7 +17,7 @@ For the moment, nothing is functional.
 I am currently working on it!
 
 
-## Features:
+## ✨ Features:
 - Dark/Light Mode
 
 ##  ➕ Features to be added:
