@@ -1,5 +1,6 @@
 @import "header.css";
 @import "home.css";
+@import "footer.css";
 
 :root {
     /* Colors config */
@@ -10,7 +11,8 @@
     --red: #FF7174;
     --red-light: #FF9F9F;
     --orange: #FFC78F;
-    --green: #A8E6A3;
+    --green: #34B93D;
+    --light-green: #A8E6A3;
     --placeholder-color: rgba(0, 0, 0, 0.5);
 
     /* Fonts config */
@@ -56,6 +58,10 @@ input[type="radio"] {
     width: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* General */
 
 button:hover {
@@ -76,6 +82,12 @@ h2 {
     font-family: var(--title-font);
     font-size: var(--title-font-size);
     font-weight: var(--title-weight);
+    color: var(--black-comp);
+}
+
+h3 {
+    font-family: var(--body-font);
+    font-size: 1rem;
 }
 
 button,
@@ -97,6 +109,12 @@ select {
     color: var(--black-comp);
 }
 
+option {
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+    color: var(--black-comp);
+}
+
 /* Displaying */
 
 html {
@@ -105,4 +123,39 @@ html {
 
 .hide {
     display: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Priority badges */
+.high {
+    padding: 0 0.75rem;
+
+    color: #000;
+    background-color: var(--red-light);
+    border-radius: 25px;
+}
+
+.medium {
+    padding: 0 0.75rem;
+
+    color: #000;
+    background-color: var(--orange);
+    border-radius: 25px;
+}
+
+.low {
+    padding: 0 0.75rem;
+
+    color: #000;
+    background-color: var(--light-green);
+    border-radius: 25px;
 }

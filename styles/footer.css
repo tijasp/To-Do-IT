@@ -1,0 +1,11 @@
+footer {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#githubLogo__darkMode {
+    display: none;
+}

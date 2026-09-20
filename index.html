@@ -44,8 +44,8 @@
     <!-- Main -->
     <main>
         <!-- Side menu -->
-        <section class="sideMenu"> <!-- Column flex Side menu -->
-            <div class="sideMenu__buttonGroup"> <!-- Side menu button group -->
+        <section class="sideMenu">
+            <div class="sideMenu__buttonGroup">
                 <button id="createTask__button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                         <path d="M11.5547 7.96875H9.03125V5.44531C9.03125 5.37227 8.97148 5.3125 8.89844 5.3125H8.10156C8.02852 5.3125 7.96875 5.37227 7.96875 5.44531V7.96875H5.44531C5.37227 7.96875 5.3125 8.02852 5.3125 8.10156V8.89844C5.3125 8.97148 5.37227 9.03125 5.44531 9.03125H7.96875V11.5547C7.96875 11.6277 8.02852 11.6875 8.10156 11.6875H8.89844C8.97148 11.6875 9.03125 11.6277 9.03125 11.5547V9.03125H11.5547C11.6277 9.03125 11.6875 8.97148 11.6875 8.89844V8.10156C11.6875 8.02852 11.6277 7.96875 11.5547 7.96875Z"/>
@@ -53,9 +53,9 @@
                     </svg>
                     Create Task
                 </button>
-                <div class="sortBy__div"> <!-- input Button + Text group -->
+                <div class="sortBy__div">
                     <h2>Sort By</h2>
-                    <div class="sortBy__buttonGroup"> <!-- Input button group -->
+                    <div class="sortBy__buttonGroup">
                         <label for="sortBy-priority">
                             <input type="radio" id="sortBy-priority" name="sort__choice" checked>
                             <span class="sortBy__buttonName">Priority</span>
@@ -74,88 +74,125 @@
         <section class="mainSection">
             <!-- Task Creator section -->
             <section class="taskCreator">
-                <div class="taskCreator__inputGroup"> <!-- Input group -->
+                <div class="taskCreator__inputGroup">
                     <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading" required>
-                    <select name="priorityLevel__selector" required>
+                    <select name="priorityLevel__selector" id="newTask__priority" required>
                         <option value="">Select priority</option>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
                     </select>
-                    <label for="date__picker">Due Date:
-                        <input type="date" id="date__picker" required>
-                    </label>
+                    <input type="date" id="date__picker" required>
                 </div>
-                <div class="taskCreator__buttonGroup"> <!-- Button group -->
+                <div class="taskCreator__buttonGroup">
                     <button id="addNewTask-button">Add the new task</button>
                     <button id="cancel-button">Cancel</button>
                 </div>
             </section>
 
             <!-- Active tasks Section -->
-            <section>
-                <div> <!-- Category header -->
-                    <div> <!-- group name -->
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                                <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+            <section class="task_category">
+                <div class="taskCategory__header">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="categoryHeader__name">
                         <h2>Active tasks</h2>
-                        <h2>0</h2>
+                        <div class="categoryHeader__taskCounter">
+                            <h2>0</h2>
+                        </div>
                     </div>
                     <h2>Priority</h2>
                     <h2>Due date</h2>
                 </div>
+
                 <!-- TASK EXEMPLE -->
-                <div>
-                    <div>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <path d="M2.66675 8.00002H29.3334M13.3334 14.6667V21.3334M18.6667 14.6667V21.3334M5.33341 8.00002H26.6667L24.5601 26.96C24.4879 27.6125 24.1775 28.2155 23.6884 28.6534C23.1993 29.0913 22.5659 29.3334 21.9094 29.3334H10.0907C9.43426 29.3334 8.80083 29.0913 8.31174 28.6534C7.82266 28.2155 7.51229 27.6125 7.44008 26.96L5.33341 8.00002ZM9.79341 4.19602C10.0091 3.73864 10.3504 3.35202 10.7774 3.08123C11.2045 2.81045 11.6997 2.66668 12.2054 2.66669H19.7947C20.3006 2.66643 20.7962 2.81008 21.2235 3.08088C21.6508 3.35167 21.9923 3.73844 22.2081 4.19602L24.0001 8.00002H8.00008L9.79341 4.19602Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        <p>Optimize page loading</p>
+                <div class="task">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <p class="task__name">Finish "To-Do IT" project</p>
+                    <div class="task__priorityBadge">
+                        <p class="high">High</p>
                     </div>
-                    <p>High</p>
-                    <p>31/09/2026</p>
-                    <div class="checkbox-wrapper-19">
-                        <input type="checkbox" id="cbtest-19">
-                        <label for="cbtest-19" class="check-box">
+                    <p>24/12/2026</p>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="task-1">
+                        <label for="task-1" class="check-box">
+                    </div>
+                </div>
+
+                <div class="task">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <p class="task__name">Make responsive design</p>
+                    <div class="task__priorityBadge">
+                        <p class="medium">Medium</p>
+                    </div>
+                    <p>06/01/2027</p>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="task-2">
+                        <label for="task-2" class="check-box">
                     </div>
                 </div>
             </section>
 
-            <!-- Active tasks Section -->
-            <section>
-                <div> <!-- Category header -->
-                    <div> <!-- group name -->
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                                <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        <h2>Active tasks</h2>
-                        <h2>0</h2>
+            <!-- Completed tasks Section -->
+            <section class="task_category">
+                <div class="taskCategory__header">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="categoryHeader__name">
+                        <h2>Completed tasks</h2>
+                        <div class="categoryHeader__taskCounter">
+                            <h2>0</h2>
+                        </div>
                     </div>
                     <h2>Priority</h2>
                     <h2>Due date</h2>
                 </div>
                 <!-- TASK EXEMPLE -->
-                <div>
-                    <div>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <path d="M2.66675 8.00002H29.3334M13.3334 14.6667V21.3334M18.6667 14.6667V21.3334M5.33341 8.00002H26.6667L24.5601 26.96C24.4879 27.6125 24.1775 28.2155 23.6884 28.6534C23.1993 29.0913 22.5659 29.3334 21.9094 29.3334H10.0907C9.43426 29.3334 8.80083 29.0913 8.31174 28.6534C7.82266 28.2155 7.51229 27.6125 7.44008 26.96L5.33341 8.00002ZM9.79341 4.19602C10.0091 3.73864 10.3504 3.35202 10.7774 3.08123C11.2045 2.81045 11.6997 2.66668 12.2054 2.66669H19.7947C20.3006 2.66643 20.7962 2.81008 21.2235 3.08088C21.6508 3.35167 21.9923 3.73844 22.2081 4.19602L24.0001 8.00002H8.00008L9.79341 4.19602Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        <p>Turn on my computer</p>
+                <div class="task">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <p class="task__name">Finish desktop design and start coding it</p>
+                    <div class="task__priorityBadge">
+                        <p class="medium">Medium</p>
                     </div>
-                    <p>Medium</p>
-                    <p>20/09/2026</p>
-                    <div class="checkbox-wrapper-19">
-                        <input type="checkbox" id="cbtest-19" checked>
-                        <label for="cbtest-19" class="check-box">
+                    <p>29/09/2026</p>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="task-3" checked>
+                        <label for="task-3" class="check-box">
+                    </div>
+                </div>
+
+                <div class="task">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <p class="task__name">Example of how a task with a very long name is displayed. I don't really have any ideas, so I'm just going to write some nonsense.</p>
+                    <div class="task__priorityBadge">
+                        <p class="low">Low</p>
+                    </div>
+                    <p>31/09/2026</p>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="task-4" checked>
+                        <label for="task-4" class="check-box">
                     </div>
                 </div>
             </section>
@@ -165,7 +202,27 @@
 
     <!-- Footer -->
      <footer>
-        <h3>© 2026 Tijasp. Built with ❤️ by Tijasp.</h3>
+        <h3>Built with ❤️ by Tijasp.</h3>
+        <a href="https://github.com/tijasp" target="_blank" id="githubLogo__lightMode">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <mask id="mask0_45_197" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                <path d="M0 0H24V24H0V0Z" fill="white"/>
+                </mask>
+                <g mask="url(#mask0_45_197)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z" fill="black"/>
+                </g>
+            </svg>
+        </a>
+        <a href="https://github.com/tijasp"  target="_blank" id="githubLogo__darkMode">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <mask id="mask0_45_189" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                <path d="M0 0H24V24H0V0Z" fill="white"/>
+                </mask>
+                <g mask="url(#mask0_45_189)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z" fill="white"/>
+                </g>
+            </svg>
+        </a>
      </footer>
 
 </body>
