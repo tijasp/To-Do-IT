@@ -79,22 +79,28 @@
         <!-- Main section -->
         <section class="mainSection">
             <!-- Task Creator section -->
-            <section id="taskCreator__frame" class="taskCreator hide">
-                <form action="" class="taskCreator__inputGroup">
-                    <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading" required>
-                    <select name="priorityLevel__selector" id="newTask__priority" required>
+            <form action="" id="taskCreator__frame" class="taskCreator hide">
+                <div class="taskCreator__inputGroup">
+                    <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading">
+                    <select name="priorityLevel__selector" id="newTask__priority">
                         <option value="">Select priority</option>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
                     </select>
-                    <input type="date" id="date__picker" required>
-                </form>
+                    <input type="date" id="date__picker">
+                </div>
                 <div class="taskCreator__buttonGroup">
                     <input type="submit" id="addNewTask-button" value="Add the new task">
                     <button id="cancel-button">Cancel</button>
                 </div>
-            </section>
+                <div id="taskError_name" class="hide">
+                    <p style="color: var(--red);">Enter the task name</p>
+                </div>
+                <div id="taskError_priority" class="hide">
+                    <p style="color: var(--red);">Select the priority level</p>
+                </div>
+            </form>
 
             <!-- Active tasks Section -->
             <section class="task_category">
