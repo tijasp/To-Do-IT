@@ -1,0 +1,32 @@
+[data-theme="light"] {
+	--electric-sapphire: #5863F8;
+    --main-background: #EBEBEB;
+    --white-comp: #FFFFFF;
+    --black-comp: #000000;
+    --red: #FF7174;
+    --red-light: #FF9F9F;
+    --orange: #FFC78F;
+    --green: #34B93D;
+    --light-green: #A8E6A3;
+    --placeholder-color: rgba(0, 0, 0, 0.5);
+	--color-scheme: light;
+	--light-logo-display: normal;
+	--dark-logo-display: none;
+}
+
+/* 🌚 Style sombre */
+[data-theme="dark"] {
+	--electric-sapphire: #5863F8;
+    --main-background: #191919;
+    --white-comp: #2D2D2D;
+    --black-comp: #FFFFFF;
+    --red: #FF7174;
+    --red-light: #FF9F9F;
+    --orange: #FFC78F;
+    --green: #34B93D;
+    --light-green: #A8E6A3;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+	--color-scheme: dark;
+	--light-logo-display: none;
+	--dark-logo-display: normal;
+}

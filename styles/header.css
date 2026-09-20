@@ -35,6 +35,14 @@ header h2 {
     justify-content: space-between;
 }
 
+#themeToggler__light {
+    display: var(--light-logo-display);
+}
+
+#themeToggler__dark {
+    display: var(--dark-logo-display);
+}
+
 #header__spacer {
     width: 2.625rem;
     height: 2.625rem;

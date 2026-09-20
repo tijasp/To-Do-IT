@@ -78,6 +78,7 @@ main {
 
 .sortBy__buttonGroup label {
     cursor: pointer;
+    color: var(--black-comp);
 
     display: flex;
     justify-content: center;
@@ -130,7 +131,7 @@ main {
     border-radius: 5px;
     box-shadow: var(--box-shadow);
 
-    display: flex;
+    display: none; /* Swtiched to flex with "Create task" button */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -174,6 +175,7 @@ main {
     padding: 0.25rem 0.5rem;
 
     border: none;
+    color-scheme: var(--color-scheme);
     background-color: var(--main-background);
     border-radius: 5px;
     text-align: center;
@@ -229,6 +231,10 @@ main {
     grid-template-columns: 2rem 15fr minmax(0,3fr) minmax(0,4fr) 2rem;
     column-gap: 1rem;
     align-self: stretch;
+}
+
+.arrowButton {
+  stroke: var(--black-comp);
 }
 
 .categoryHeader__name {

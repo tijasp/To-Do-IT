@@ -1,20 +1,9 @@
+@import "dark-mode.css";
 @import "header.css";
 @import "home.css";
 @import "footer.css";
 
 :root {
-    /* Colors config */
-    --electric-sapphire: #5863F8;
-    --main-background: #EBEBEB;
-    --white-comp: #FFFFFF;
-    --black-comp: #000000;
-    --red: #FF7174;
-    --red-light: #FF9F9F;
-    --orange: #FFC78F;
-    --green: #34B93D;
-    --light-green: #A8E6A3;
-    --placeholder-color: rgba(0, 0, 0, 0.5);
-
     /* Fonts config */
     --header-font: "Audiowide";
     --header-font-size: 3rem;
@@ -119,10 +108,6 @@ option {
 
 html {
     background-color: var(--main-background);
-}
-
-.hide {
-    display: none;
 }
 
 body {

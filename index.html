@@ -1,10 +1,13 @@
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do IT</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
     <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/script.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;600&family=Quicksand:wght@600&display=swap" rel="stylesheet">
@@ -19,13 +22,13 @@
                 <h1>TO-DO IT</h1>
                 <h2>Small tasks, big achievements.</h2>
             </div>
-            <button class="">
+            <button id="themeToggler__light" data-theme-toggler>
                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M18.2133 14.5773C18.4782 13.3192 19.0395 12.1426 19.8507 11.1452C20.6618 10.1478 21.6993 9.35838 22.877 8.84265C23.6281 8.5115 23.465 7.40173 22.6508 7.30158C15.6158 6.43896 9.04119 11.1139 7.55503 18.102C5.9768 25.5328 10.7083 32.8343 18.1261 34.4126C25.544 35.9892 32.8374 31.2432 34.4173 23.8124C34.6482 22.726 34.748 21.6159 34.7145 20.5057C34.6886 19.6835 33.5934 19.4218 33.1977 20.1439C32.3644 21.6693 31.0613 22.8853 29.4819 23.6111C27.9026 24.3369 26.1312 24.5338 24.431 24.1727C22.334 23.7247 20.501 22.4621 19.3349 20.6626C18.1689 18.8632 17.7655 16.6742 18.2133 14.5773ZM9.13488 18.438C9.6702 15.9148 10.9948 13.6275 12.9168 11.9073C14.8389 10.1871 17.2586 9.12335 19.8255 8.87012C18.2279 10.2335 17.089 12.1009 16.6335 14.2413C16.3677 15.4871 16.3498 16.7732 16.581 18.0259C16.8122 19.2787 17.2879 20.4737 17.9809 21.5426C18.6739 22.6115 19.5707 23.5335 20.62 24.2558C21.6693 24.9782 22.8507 25.4867 24.0966 25.7525C25.6602 26.0845 27.2818 26.0247 28.8167 25.5782C30.3516 25.1318 31.7523 24.3126 32.894 23.1937L32.8374 23.4764C31.4433 30.0349 25.0077 34.2236 18.4621 32.8327C11.9182 31.4403 7.74242 24.9981 9.1365 18.4397" fill="white"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9999 39.577C31.2592 39.577 39.5768 31.2594 39.5768 21C39.5768 10.7407 31.2592 2.42312 20.9999 2.42312C10.7406 2.42312 2.423 10.7407 2.423 21C2.423 31.2594 10.7406 39.577 20.9999 39.577ZM20.9999 41.1924C32.1525 41.1924 41.1922 32.1527 41.1922 21C41.1922 9.84743 32.1525 0.807739 20.9999 0.807739C9.84731 0.807739 0.807617 9.84743 0.807617 21C0.807617 32.1527 9.84731 41.1924 20.9999 41.1924Z" fill="white"/>
                 </svg>
             </button>
-            <button class="hide">
+            <button id="themeToggler__dark" data-theme-toggler>
                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M21 26.6539C21.7425 26.6539 22.4777 26.5076 23.1637 26.2235C23.8496 25.9394 24.4729 25.5229 24.9979 24.9979C25.5229 24.4729 25.9394 23.8496 26.2235 23.1637C26.5076 22.4777 26.6539 21.7425 26.6539 21C26.6539 20.2576 26.5076 19.5224 26.2235 18.8364C25.9394 18.1504 25.5229 17.5272 24.9979 17.0022C24.4729 16.4772 23.8496 16.0607 23.1637 15.7766C22.4777 15.4924 21.7425 15.3462 21 15.3462C19.5005 15.3462 18.0625 15.9419 17.0022 17.0022C15.9419 18.0625 15.3462 19.5005 15.3462 21C15.3462 22.4995 15.9419 23.9376 17.0022 24.9979C18.0625 26.0582 19.5005 26.6539 21 26.6539ZM21 16.9616C22.0711 16.9616 23.0983 17.3871 23.8557 18.1444C24.613 18.9018 25.0385 19.929 25.0385 21C25.0385 22.0711 24.613 23.0983 23.8557 23.8557C23.0983 24.613 22.0711 25.0385 21 25.0385C19.929 25.0385 18.9018 24.613 18.1444 23.8557C17.3871 23.0983 16.9616 22.0711 16.9616 21C16.9616 19.929 17.3871 18.9018 18.1444 18.1444C18.9018 17.3871 19.929 16.9616 21 16.9616Z" fill="white"/>
                     <path d="M7.26912 20.1924C6.82304 20.1924 6.46143 20.554 6.46143 21C6.46143 21.4461 6.82304 21.8077 7.26912 21.8077H10.4999C10.946 21.8077 11.3076 21.4461 11.3076 21C11.3076 20.554 10.946 20.1924 10.4999 20.1924H7.26912Z" fill="white"/>
@@ -96,7 +99,7 @@
                 <div class="taskCategory__header">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                            <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round" class="arrowButton"/>
                         </svg>
                     </button>
                     <div class="categoryHeader__name">
@@ -150,7 +153,7 @@
                 <div class="taskCategory__header">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                            <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round" class="arrowButton"/>
                         </svg>
                     </button>
                     <div class="categoryHeader__name">
@@ -204,7 +207,7 @@
     <!-- Footer -->
      <footer>
         <h3>Built with ❤️ by Tijasp.</h3>
-        <a href="https://github.com/tijasp" target="_blank" id="githubLogo__lightMode">
+        <a href="https://github.com/tijasp" target="_blank" id="githubLogo__light">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <mask id="mask0_45_197" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <path d="M0 0H24V24H0V0Z" fill="white"/>
@@ -214,7 +217,7 @@
                 </g>
             </svg>
         </a>
-        <a href="https://github.com/tijasp"  target="_blank" id="githubLogo__darkMode">
+        <a href="https://github.com/tijasp"  target="_blank" id="githubLogo__dark">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <mask id="mask0_45_189" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <path d="M0 0H24V24H0V0Z" fill="white"/>

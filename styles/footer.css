@@ -1,11 +1,18 @@
 footer {
     padding: 0.5rem;
+
+    color: var(--black-comp);
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 0.5rem;
 }
 
-#githubLogo__darkMode {
-    display: none;
+#githubLogo__light {
+    display: var(--light-logo-display);
+}
+
+#githubLogo__dark {
+    display: var(--dark-logo-display);
 }
