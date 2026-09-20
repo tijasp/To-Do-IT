@@ -16,12 +16,13 @@ For the moment, nothing is functional.
 
 I am currently working on it!
 
-  
+
+## Features:
+- Dark/Light Mode
 
 ##  ➕ Features to be added:
 
 ### V1:
-- Dark/Light Mode
 - Task creation (very usefull for a to-do list ! 😆)
 - Task grouping by category (active/completed)
 - Delete task
