@@ -6,7 +6,9 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     
     <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/script.js"></script>
+    <script src="scripts/theme-toggler.js"></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/main.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,8 +79,8 @@
         <!-- Main section -->
         <section class="mainSection">
             <!-- Task Creator section -->
-            <section class="taskCreator">
-                <div class="taskCreator__inputGroup">
+            <section id="taskCreator__frame" class="taskCreator hide">
+                <form action="" class="taskCreator__inputGroup">
                     <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading" required>
                     <select name="priorityLevel__selector" id="newTask__priority" required>
                         <option value="">Select priority</option>
@@ -87,9 +89,9 @@
                         <option value="low">Low</option>
                     </select>
                     <input type="date" id="date__picker" required>
-                </div>
+                </form>
                 <div class="taskCreator__buttonGroup">
-                    <button id="addNewTask-button">Add the new task</button>
+                    <input type="submit" id="addNewTask-button" value="Add the new task">
                     <button id="cancel-button">Cancel</button>
                 </div>
             </section>
