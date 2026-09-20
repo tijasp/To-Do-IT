@@ -1,23 +1,35 @@
-(function () {
-    const root = document.documentElement;
+// Clear Text input / Priority Selector / Date Input of the task Creator
+function clearInputs() {
+    const select = document.getElementById("newTask__priority")
+    const input = document.querySelectorAll(".taskCreator__inputGroup input")
 
-    function init() {
-        const storedPreference = localStorage.getItem("theme") || "light";
-        root.setAttribute("data-theme", storedPreference);
-    }
-    init();
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const togglers = document.querySelectorAll("[data-theme-toggler]");
-        togglers.forEach((toggler) => {
-            toggler.addEventListener("click", toggleDarkMode);
-        });
+    select.selectedIndex = 0;
+    input.forEach(element => {
+        element.value = ""
     });
+}
 
-    function toggleDarkMode() {
-        const currentTheme = root.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
+// Listen "click" on buttons to hide/show Task creator frame
+function initTaskCreatorDisplayer() {
+    const taskCreatorFrame = document.getElementById("taskCreator__frame")
+    const taskCreatorButton = document.getElementById("createTask__button")
+    const cancelButton = document.getElementById("cancel-button")
+
+    function toggleDisplay() {
+        taskCreatorButton.classList.toggle("active")
+        taskCreatorFrame.classList.toggle("hide");
+        clearInputs()
     }
-})();
+
+    taskCreatorButton.addEventListener("click", () => {
+        toggleDisplay()
+    })
+
+    cancelButton.addEventListener("click", () => {
+        toggleDisplay()
+    })
+}
+
+function main() {
+    initTaskCreatorDisplayer()
+}
