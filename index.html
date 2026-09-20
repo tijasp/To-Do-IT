@@ -4,87 +4,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do IT</title>
     <link rel="stylesheet" href="styles/main.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz@14..32&family=Quicksand&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@400;600&family=Quicksand:wght@600&display=swap" rel="stylesheet">
 </head>
-<body>
 
+<body>
     <!-- Header -->
     <header>
-        <div class="header__spacer"></div>
-        <div class="header__titles">
-            <h1>TO-DO IT</h1>
-            <h2>Small tasks, big achievements.</h2>
+        <div class="header__rowFlex">
+            <div id="header__spacer"></div>
+            <div class="header__textGroup">
+                <h1>TO-DO IT</h1>
+                <h2>Small tasks, big achievements.</h2>
+            </div>
+            <button class="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.2133 14.5773C18.4782 13.3192 19.0395 12.1426 19.8507 11.1452C20.6618 10.1478 21.6993 9.35838 22.877 8.84265C23.6281 8.5115 23.465 7.40173 22.6508 7.30158C15.6158 6.43896 9.04119 11.1139 7.55503 18.102C5.9768 25.5328 10.7083 32.8343 18.1261 34.4126C25.544 35.9892 32.8374 31.2432 34.4173 23.8124C34.6482 22.726 34.748 21.6159 34.7145 20.5057C34.6886 19.6835 33.5934 19.4218 33.1977 20.1439C32.3644 21.6693 31.0613 22.8853 29.4819 23.6111C27.9026 24.3369 26.1312 24.5338 24.431 24.1727C22.334 23.7247 20.501 22.4621 19.3349 20.6626C18.1689 18.8632 17.7655 16.6742 18.2133 14.5773ZM9.13488 18.438C9.6702 15.9148 10.9948 13.6275 12.9168 11.9073C14.8389 10.1871 17.2586 9.12335 19.8255 8.87012C18.2279 10.2335 17.089 12.1009 16.6335 14.2413C16.3677 15.4871 16.3498 16.7732 16.581 18.0259C16.8122 19.2787 17.2879 20.4737 17.9809 21.5426C18.6739 22.6115 19.5707 23.5335 20.62 24.2558C21.6693 24.9782 22.8507 25.4867 24.0966 25.7525C25.6602 26.0845 27.2818 26.0247 28.8167 25.5782C30.3516 25.1318 31.7523 24.3126 32.894 23.1937L32.8374 23.4764C31.4433 30.0349 25.0077 34.2236 18.4621 32.8327C11.9182 31.4403 7.74242 24.9981 9.1365 18.4397" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9999 39.577C31.2592 39.577 39.5768 31.2594 39.5768 21C39.5768 10.7407 31.2592 2.42312 20.9999 2.42312C10.7406 2.42312 2.423 10.7407 2.423 21C2.423 31.2594 10.7406 39.577 20.9999 39.577ZM20.9999 41.1924C32.1525 41.1924 41.1922 32.1527 41.1922 21C41.1922 9.84743 32.1525 0.807739 20.9999 0.807739C9.84731 0.807739 0.807617 9.84743 0.807617 21C0.807617 32.1527 9.84731 41.1924 20.9999 41.1924Z" fill="white"/>
+                </svg>
+            </button>
+            <button class="hide">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 26.6539C21.7425 26.6539 22.4777 26.5076 23.1637 26.2235C23.8496 25.9394 24.4729 25.5229 24.9979 24.9979C25.5229 24.4729 25.9394 23.8496 26.2235 23.1637C26.5076 22.4777 26.6539 21.7425 26.6539 21C26.6539 20.2576 26.5076 19.5224 26.2235 18.8364C25.9394 18.1504 25.5229 17.5272 24.9979 17.0022C24.4729 16.4772 23.8496 16.0607 23.1637 15.7766C22.4777 15.4924 21.7425 15.3462 21 15.3462C19.5005 15.3462 18.0625 15.9419 17.0022 17.0022C15.9419 18.0625 15.3462 19.5005 15.3462 21C15.3462 22.4995 15.9419 23.9376 17.0022 24.9979C18.0625 26.0582 19.5005 26.6539 21 26.6539ZM21 16.9616C22.0711 16.9616 23.0983 17.3871 23.8557 18.1444C24.613 18.9018 25.0385 19.929 25.0385 21C25.0385 22.0711 24.613 23.0983 23.8557 23.8557C23.0983 24.613 22.0711 25.0385 21 25.0385C19.929 25.0385 18.9018 24.613 18.1444 23.8557C17.3871 23.0983 16.9616 22.0711 16.9616 21C16.9616 19.929 17.3871 18.9018 18.1444 18.1444C18.9018 17.3871 19.929 16.9616 21 16.9616Z" fill="white"/>
+                    <path d="M7.26912 20.1924C6.82304 20.1924 6.46143 20.554 6.46143 21C6.46143 21.4461 6.82304 21.8077 7.26912 21.8077H10.4999C10.946 21.8077 11.3076 21.4461 11.3076 21C11.3076 20.554 10.946 20.1924 10.4999 20.1924H7.26912Z" fill="white"/>
+                    <path d="M31.5001 20.1924C31.054 20.1924 30.6924 20.554 30.6924 21C30.6924 21.4461 31.054 21.8077 31.5001 21.8077H34.7308C35.1769 21.8077 35.5385 21.4461 35.5385 21C35.5385 20.554 35.1769 20.1924 34.7308 20.1924H31.5001Z" fill="white"/>
+                    <path d="M29.1748 28.0325C28.8594 27.7171 28.348 27.7171 28.0326 28.0325C27.7171 28.3479 27.7171 28.8593 28.0326 29.1748L30.3171 31.4593C30.6325 31.7747 31.1439 31.7747 31.4593 31.4593C31.7747 31.1438 31.7747 30.6324 31.4593 30.317L29.1748 28.0325Z" fill="white"/>
+                    <path d="M11.4058 10.2632C11.0903 9.9478 10.5789 9.9478 10.2635 10.2632C9.94808 10.5786 9.94808 11.0901 10.2635 11.4055L12.548 13.69C12.8634 14.0054 13.3748 14.0054 13.6903 13.69C14.0057 13.3746 14.0057 12.8631 13.6903 12.5477L11.4058 10.2632Z" fill="white"/>
+                    <path d="M21.8078 31.5C21.8078 31.0539 21.4462 30.6923 21.0001 30.6923C20.554 30.6923 20.1924 31.0539 20.1924 31.5V34.7307C20.1924 35.1768 20.554 35.5384 21.0001 35.5384C21.4462 35.5384 21.8078 35.1768 21.8078 34.7307V31.5Z" fill="white"/>
+                    <path d="M21.8078 7.26924C21.8078 6.82316 21.4462 6.46155 21.0001 6.46155C20.554 6.46155 20.1924 6.82316 20.1924 7.26924V10.5C20.1924 10.9461 20.554 11.3077 21.0001 11.3077C21.4462 11.3077 21.8078 10.9461 21.8078 10.5V7.26924Z" fill="white"/>
+                    <path d="M31.4588 11.4056C31.7742 11.0902 31.7742 10.5788 31.4588 10.2634C31.1434 9.94796 30.632 9.94796 30.3166 10.2634L28.0321 12.5479C27.7166 12.8633 27.7166 13.3747 28.0321 13.6901C28.3475 14.0056 28.8589 14.0056 29.1743 13.6901L31.4588 11.4056Z" fill="white"/>
+                    <path d="M13.6898 29.1749C14.0052 28.8595 14.0052 28.3481 13.6898 28.0327C13.3744 27.7172 12.863 27.7172 12.5475 28.0327L10.263 30.3172C9.94761 30.6326 9.94761 31.144 10.263 31.4594C10.5785 31.7748 11.0899 31.7748 11.4053 31.4594L13.6898 29.1749Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9999 39.577C31.2592 39.577 39.5768 31.2594 39.5768 21C39.5768 10.7407 31.2592 2.42312 20.9999 2.42312C10.7406 2.42312 2.423 10.7407 2.423 21C2.423 31.2594 10.7406 39.577 20.9999 39.577ZM20.9999 41.1924C32.1525 41.1924 41.1922 32.1527 41.1922 21C41.1922 9.84743 32.1525 0.807739 20.9999 0.807739C9.84731 0.807739 0.807617 9.84743 0.807617 21C0.807617 32.1527 9.84731 41.1924 20.9999 41.1924Z" fill="white"/>
+                  </svg>
+            </button>
         </div>
-        <button id="theme-toggler">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.815 16.6597C21.1177 15.2219 21.7592 13.8772 22.6862 12.7373C23.6132 11.5974 24.7989 10.6952 26.1448 10.1058C27.0033 9.72739 26.8168 8.45908 25.8864 8.34462C17.8464 7.35877 10.3325 12.7015 8.63405 20.688C6.83035 29.1803 12.2377 37.5249 20.7153 39.3286C29.1928 41.1305 37.5282 35.7065 39.3337 27.2142C39.5976 25.9726 39.7117 24.7038 39.6734 23.4351C39.6439 22.4954 38.3922 22.1963 37.9399 23.0215C36.9876 24.7649 35.4984 26.1545 33.6934 26.984C31.8884 27.8135 29.8639 28.0386 27.9208 27.6258C25.5243 27.1139 23.4294 25.6709 22.0968 23.6144C20.7642 21.5579 20.3031 19.0562 20.815 16.6597ZM10.4396 21.072C11.0514 18.1883 12.5652 15.5742 14.7618 13.6083C16.9584 11.6423 19.7238 10.4266 22.6574 10.1372C20.8316 11.6954 19.53 13.8295 19.0094 16.2757C18.7056 17.6995 18.6852 19.1693 18.9494 20.601C19.2136 22.0328 19.7573 23.3984 20.5493 24.6201C21.3413 25.8417 22.3662 26.8954 23.5654 27.7209C24.7647 28.5464 26.1148 29.1276 27.5387 29.4314C29.3257 29.8109 31.1789 29.7424 32.9331 29.2322C34.6873 28.722 36.2881 27.7858 37.5928 26.5071L37.5282 26.8302C35.935 34.3255 28.5799 39.1126 21.0993 37.5231C13.6205 35.9317 8.8482 28.5692 10.4414 21.0738" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M23.9998 45.2308C35.7247 45.2308 45.2305 35.7249 45.2305 24C45.2305 12.2751 35.7247 2.76923 23.9998 2.76923C12.2749 2.76923 2.76901 12.2751 2.76901 24C2.76901 35.7249 12.2749 45.2308 23.9998 45.2308ZM23.9998 47.0769C36.7456 47.0769 47.0767 36.7458 47.0767 24C47.0767 11.2542 36.7456 0.923077 23.9998 0.923077C11.2539 0.923077 0.922852 11.2542 0.922852 24C0.922852 36.7458 11.2539 47.0769 23.9998 47.0769Z" fill="white"/>
-            </svg>
-        </button>
     </header>
 
     <!-- Main -->
     <main>
-        <!-- Toolbar -->
-        <section class="toolbar">
-
-            <!-- Toolbar Header -->
-            <section class="toolbar__header">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                        <path d="M18 10.2857H10.2857V18H7.71429V10.2857H0V7.71429H7.71429V0H10.2857V7.71429H18V10.2857Z" fill="white"/>
+        <!-- Side menu -->
+        <section class="sideMenu"> <!-- Column flex Side menu -->
+            <div class="sideMenu__buttonGroup"> <!-- Side menu button group -->
+                <button id="createTask__button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                        <path d="M11.5547 7.96875H9.03125V5.44531C9.03125 5.37227 8.97148 5.3125 8.89844 5.3125H8.10156C8.02852 5.3125 7.96875 5.37227 7.96875 5.44531V7.96875H5.44531C5.37227 7.96875 5.3125 8.02852 5.3125 8.10156V8.89844C5.3125 8.97148 5.37227 9.03125 5.44531 9.03125H7.96875V11.5547C7.96875 11.6277 8.02852 11.6875 8.10156 11.6875H8.89844C8.97148 11.6875 9.03125 11.6277 9.03125 11.5547V9.03125H11.5547C11.6277 9.03125 11.6875 8.97148 11.6875 8.89844V8.10156C11.6875 8.02852 11.6277 7.96875 11.5547 7.96875Z"/>
+                        <path d="M8.5 1.0625C4.39277 1.0625 1.0625 4.39277 1.0625 8.5C1.0625 12.6072 4.39277 15.9375 8.5 15.9375C12.6072 15.9375 15.9375 12.6072 15.9375 8.5C15.9375 4.39277 12.6072 1.0625 8.5 1.0625ZM8.5 14.6758C5.09004 14.6758 2.32422 11.91 2.32422 8.5C2.32422 5.09004 5.09004 2.32422 8.5 2.32422C11.91 2.32422 14.6758 5.09004 14.6758 8.5C14.6758 11.91 11.91 14.6758 8.5 14.6758Z"/>
                     </svg>
-                    NEW TASK
+                    Create Task
                 </button>
-                <div class="toolbarHeader__sortPart">
-                    <h2>Sort by</h2>
-                    <div class="toolbarHeader__RadioButtonGroup">
-                        <label for="priority-level">
-                            <input id="priority-level" type="radio" name="sort_choice" checked>
-                            <span class="radioButton_name">Priority</span>
+                <div class="sortBy__div"> <!-- input Button + Text group -->
+                    <h2>Sort By</h2>
+                    <div class="sortBy__buttonGroup"> <!-- Input button group -->
+                        <label for="sortBy-priority">
+                            <input type="radio" id="sortBy-priority" name="sort__choice" checked>
+                            <span class="sortBy__buttonName">Priority</span>
                         </label>
-
-                        <label for="due-date">
-                            <input id="due-date" type="radio" name="sort_choice">
-                            <span class="radioButton_name">Due date</span>
+                        <label for="sortBy-dueDate">
+                            <input type="radio" id="sortBy-dueDate" name="sort__choice">
+                            <span class="sortBy__buttonName">Due date</span>
                         </label>
                     </div>
                 </div>
-            </section>
+            </div>
+            <h2 id="sideMenu__soonMessage">More in future versions</h2>
+        </section>
 
-            <!-- Toolbar "Task Creator" expansion -->
-            <section class="toolbar__taskCreator">
-                <form class="taskCreator__form" action="">
-                    <input type="text" id="new_task_name" maxlength="60" placeholder="Enter the new task name. Ex: Optimize page loading" required>
-                    <select id="new_task_priority">
-                        <option value="">Select priority level</option>
+        <!-- Main section -->
+        <section class="mainSection">
+            <!-- Task Creator section -->
+            <section class="taskCreator">
+                <div class="taskCreator__inputGroup"> <!-- Input group -->
+                    <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading" required>
+                    <select name="priorityLevel__selector" required>
+                        <option value="">Select priority</option>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
                     </select>
-                    <div class="form__dateSelector">
-                    <label for="date">Due Date:</label>
-                    <input name="date" id="new_task_date" type="date">
-                    </div>
-                </form>
-                <div class="taskCreator__buttonGroup">
-                    <button id="taskCreator__confirmButton">
-                        CONFIRM
-                    </button>
-                    <button id="taskCreator__cancelButton">
-                        CANCEL
-                    </button>
+                    <label for="date__picker">Due Date:
+                        <input type="date" id="date__picker" required>
+                    </label>
+                </div>
+                <div class="taskCreator__buttonGroup"> <!-- Button group -->
+                    <button id="addNewTask-button">Add the new task</button>
+                    <button id="cancel-button">Cancel</button>
                 </div>
             </section>
+
+            <!-- Active tasks Section -->
+            <section>
+                <div> <!-- Category header -->
+                    <div> <!-- group name -->
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <h2>Active tasks</h2>
+                        <h2>0</h2>
+                    </div>
+                    <h2>Priority</h2>
+                    <h2>Due date</h2>
+                </div>
+                <!-- TASK EXEMPLE -->
+                <div>
+                    <div>
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M2.66675 8.00002H29.3334M13.3334 14.6667V21.3334M18.6667 14.6667V21.3334M5.33341 8.00002H26.6667L24.5601 26.96C24.4879 27.6125 24.1775 28.2155 23.6884 28.6534C23.1993 29.0913 22.5659 29.3334 21.9094 29.3334H10.0907C9.43426 29.3334 8.80083 29.0913 8.31174 28.6534C7.82266 28.2155 7.51229 27.6125 7.44008 26.96L5.33341 8.00002ZM9.79341 4.19602C10.0091 3.73864 10.3504 3.35202 10.7774 3.08123C11.2045 2.81045 11.6997 2.66668 12.2054 2.66669H19.7947C20.3006 2.66643 20.7962 2.81008 21.2235 3.08088C21.6508 3.35167 21.9923 3.73844 22.2081 4.19602L24.0001 8.00002H8.00008L9.79341 4.19602Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <p>Optimize page loading</p>
+                    </div>
+                    <p>High</p>
+                    <p>31/09/2026</p>
+                    <div class="checkbox-wrapper-19">
+                        <input type="checkbox" id="cbtest-19">
+                        <label for="cbtest-19" class="check-box">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active tasks Section -->
+            <section>
+                <div> <!-- Category header -->
+                    <div> <!-- group name -->
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                <path d="M6 13.5L18 25.5L30 13.5" stroke="black" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <h2>Active tasks</h2>
+                        <h2>0</h2>
+                    </div>
+                    <h2>Priority</h2>
+                    <h2>Due date</h2>
+                </div>
+                <!-- TASK EXEMPLE -->
+                <div>
+                    <div>
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M2.66675 8.00002H29.3334M13.3334 14.6667V21.3334M18.6667 14.6667V21.3334M5.33341 8.00002H26.6667L24.5601 26.96C24.4879 27.6125 24.1775 28.2155 23.6884 28.6534C23.1993 29.0913 22.5659 29.3334 21.9094 29.3334H10.0907C9.43426 29.3334 8.80083 29.0913 8.31174 28.6534C7.82266 28.2155 7.51229 27.6125 7.44008 26.96L5.33341 8.00002ZM9.79341 4.19602C10.0091 3.73864 10.3504 3.35202 10.7774 3.08123C11.2045 2.81045 11.6997 2.66668 12.2054 2.66669H19.7947C20.3006 2.66643 20.7962 2.81008 21.2235 3.08088C21.6508 3.35167 21.9923 3.73844 22.2081 4.19602L24.0001 8.00002H8.00008L9.79341 4.19602Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <p>Turn on my computer</p>
+                    </div>
+                    <p>Medium</p>
+                    <p>20/09/2026</p>
+                    <div class="checkbox-wrapper-19">
+                        <input type="checkbox" id="cbtest-19" checked>
+                        <label for="cbtest-19" class="check-box">
+                    </div>
+                </div>
+            </section>
+
         </section>
     </main>
 
+    <!-- Footer -->
+     <footer>
+        <h3>© 2026 Tijasp. Built with ❤️ by Tijasp.</h3>
+     </footer>
+
 </body>
-<footer>
-    <h2>© 2026 - Made with ❤️ by Tijasp.</h2>
-</footer>
+
 </html>
