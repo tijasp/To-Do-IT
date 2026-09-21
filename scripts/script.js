@@ -1,19 +1,30 @@
 import { loadStoredTasks, saveTasks } from "./localstorage.js"
 let tasks = loadStoredTasks()
+let taskSortMode = "priority";
 
-// Add all stored tasks in localStorage to the list
-function addStoredTasks() {
+// Recreates all tasks to put them in the right place
+function renderTasks() {
+    const oldTasks = document.querySelectorAll(".task");
+
+    oldTasks.forEach(task => task.remove());
+
+    if (taskSortMode === "priority") {
+        sortByPriority();
+    } else {
+        sortByDate();
+    }
+
     tasks.forEach(task => {
-
         createTaskDiv(
             task.id,
             task.name,
             task.priority,
             task.due_date,
             task.completed
-        )
-    })
-    updateTaskCounter()
+        );
+    });
+
+    updateTaskCounter();
 }
 
 // When called, it update the tasks counter of the Category lists
@@ -144,18 +155,10 @@ function createTask(taskName, taskPriority, taskDate) {
         due_date: taskDate,
         completed: false,
     }
-    tasks.push(newTask)
+    tasks.push(newTask);
 
-    createTaskDiv(
-        newTask.id, 
-        newTask.name, 
-        newTask.priority, 
-        newTask.due_date,
-        newTask.completed
-    )
-
-    saveTasks(tasks)
-    updateTaskCounter()
+    saveTasks(tasks);
+    renderTasks();
 }
 
 // Create HTML code to display the new task in the list
@@ -192,7 +195,7 @@ function createTaskDiv(id, name, priority, date, status) {
 }
 
 // Delete a task from list and save localstorage after
-function deleteTask() {
+function initTaskDeleteButton() {
     const categories = [
         document.getElementById("activeTasksCategory"),
         document.getElementById("completedTasksCategory")
@@ -217,24 +220,12 @@ function deleteTask() {
     })
 }
 
-// Update the Displayed category of a task (Active or Completed)
-function updateTaskCategoryDisplay(task, completed) {
-    const activeCategory = document.getElementById("activeTasksCategory")
-    const completedCategory = document.getElementById("completedTasksCategory")
-
-    if (completed) {
-        completedCategory.appendChild(task)
-    } else {
-        activeCategory.appendChild(task)
-    }
-}
-
 // Change the task status in tasks table, save it to local storage and display the task in the good category and update the task counter
 function initTaskStatusChange() {
     let tasksCategories = document.querySelectorAll(".task_category")
 
     tasksCategories.forEach(category => {
-        category.addEventListener("change", (e) => {
+        category.addEventListener("input", (e) => {
             if (!e.target.matches('input[type="checkbox"]')) return
 
             const updatedTask = e.target.closest(".task")
@@ -249,19 +240,68 @@ function initTaskStatusChange() {
 
             saveTasks(tasks)
             updateTaskCounter()
-            updateTaskCategoryDisplay(updatedTask, task.completed)
+            renderTasks()
+        })
+    })
+}
+
+// Sort tasks in Priority order + Task creation date. The fist task displayed is the first high priority task your created
+function sortByPriority() {
+    const priorityOrder = {
+        Low: 1,
+        Medium: 2,
+        High: 3
+    };
+    tasks.sort((a, b) => {
+        return a.id - b.id;
+    });
+    tasks.sort((a, b) => {
+        return priorityOrder[b.priority] - priorityOrder[a.priority];
+    });
+}
+
+// Convert the stored date value in other format to sort it easier
+function convertDateFormat(date) {
+    const [day, month, year] = date.split("/");
+    if (date === "No date") return new Date(3000, 0, 1)
+    return new Date(year, month - 1, day);
+}
+
+function sortByDate() {
+    tasks.sort((a, b) => {
+        return convertDateFormat(a.due_date) - convertDateFormat(b.due_date);
+    });
+}
+
+// Init Event listener on "Sort By" radio buttons
+function initTaskSorting() {
+    const sortRadioButtons = document.querySelectorAll('input[name="sort__choice"]')
+
+    sortRadioButtons.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+            const sortingMode = e.target.id;
+            console.log(sortingMode)
+
+            if (sortingMode === "sortBy-priority") {
+                taskSortMode = "priority";
+            } else if (sortingMode === "sortBy-dueDate") {
+                taskSortMode = "dueDate";
+            }
+            
+            renderTasks();
         })
     })
 }
 
 // run the script
 function main() {
-    addStoredTasks()
+    renderTasks()
     initCategoryDisplayer()
     initTaskCreatorDisplayer()
     initTaskCreator()
-    deleteTask()
+    initTaskDeleteButton()
     initTaskStatusChange()
+    initTaskSorting()
 }
 
 main()
