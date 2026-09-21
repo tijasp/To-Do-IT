@@ -160,7 +160,7 @@ function createTask(taskName, taskPriority, taskDate) {
 
 // Create HTML code to display the new task in the list
 function createTaskDiv(id, name, priority, date, status) {
-    const taskCategory = document.getElementById("activeTasksCategory")
+    let taskCategory = ""
     const newTaskDiv = document.createElement("div")
     let checkedAttribute = ""
     newTaskDiv.className = "task"
@@ -168,6 +168,9 @@ function createTaskDiv(id, name, priority, date, status) {
     
     if (status) {
         checkedAttribute = "checked"
+        taskCategory = document.getElementById("completedTasksCategory")
+    } else {
+        taskCategory = document.getElementById("activeTasksCategory")
     }
 
     newTaskDiv.innerHTML = `
@@ -212,7 +215,19 @@ function deleteTask() {
     })
 }
 
-// Change the task status in tasks table, save it to local storage and display the task in the good category
+// Update the Displayed category of a task (Active or Completed)
+function updateTaskCategoryDisplay(task, completed) {
+    const activeCategory = document.getElementById("activeTasksCategory")
+    const completedCategory = document.getElementById("completedTasksCategory")
+
+    if (completed) {
+        completedCategory.appendChild(task)
+    } else {
+        activeCategory.appendChild(task)
+    }
+}
+
+// Change the task status in tasks table, save it to local storage and display the task in the good category and update the task counter
 function initTaskStatusChange() {
     let tasksCategories = document.querySelectorAll(".task_category")
 
@@ -220,20 +235,19 @@ function initTaskStatusChange() {
         category.addEventListener("change", (e) => {
             if (!e.target.matches('input[type="checkbox"]')) return
 
-            const taskID = e.target.closest(".task").id
+            const updatedTask = e.target.closest(".task")
+            const taskID = updatedTask.id
             const task = tasks.find(task => task.id === taskID);
-            console.log(taskID)
 
             if (e.target.checked) {
                 task.completed = true
-                console.log("Status set to Completed Tasks")
             } else {
                 task.completed = false
-                console.log("Status set to Active Tasks")
             }
 
-            console.log(tasks)
             saveTasks(tasks)
+            updateTaskCounter()
+            updateTaskCategoryDisplay(updatedTask, task.completed)
         })
     })
 }
