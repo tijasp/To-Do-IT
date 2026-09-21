@@ -314,7 +314,6 @@ main {
         cursor: pointer;
         border: 1px solid var(--bc, var(--black-comp));
         background: var(--b, var(--white-comp));
-        transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
     }
     .checkbox-wrapper-13 input[type=checkbox]:after {
         content: "";
