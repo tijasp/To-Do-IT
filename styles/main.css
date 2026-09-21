@@ -126,7 +126,7 @@ main {
 }
 
 /* Priority badges */
-.high {
+.High {
     padding: 0 0.75rem;
 
     color: #000;
@@ -134,7 +134,7 @@ main {
     border-radius: 25px;
 }
 
-.medium {
+.Medium {
     padding: 0 0.75rem;
 
     color: #000;
@@ -142,7 +142,7 @@ main {
     border-radius: 25px;
 }
 
-.low {
+.Low {
     padding: 0 0.75rem;
 
     color: #000;

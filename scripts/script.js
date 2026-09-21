@@ -1,51 +1,46 @@
-let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+import { loadStoredTasks, saveTasks } from "./localstorage.js"
+let tasks = loadStoredTasks()
 
-// Load old tasks saved in localStorage
-function loadTasks() {
+// Load all saved tasks from localstorage and show them on the list
+function addStoredTasks() {
     tasks.forEach(task => {
-        let priority_level = "High"
-        if (task.priority === "low") {
-            priority_level = "Low"
-        } else if (task.priority === "medium") {
-            priority_level = "Medium"
-        }
 
         createTaskDiv(
             task.id,
             task.name,
             task.priority,
-            priority_level,
             task.due_date
         )
     })
 }
 
-// Save tasks in localStorage
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-}
-
-// Delete task (div and localStorage) and save the new task table to localStorage
+// Delete a task from list and save localstorage after
 function deleteTask() {
-    const deleteButtons = document.querySelectorAll(".delete");
+    const containers = [
+        document.getElementById("activeTasksCategory"),
+        document.getElementById("completedTasksCategory")
+    ]
 
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            const deletedTask = e.target.closest(".task");
-            const taskID = deletedTask.id;
+    containers.forEach(container => {
+        container.addEventListener("click", (e) => {
+            const deleteButton = e.target.closest(".delete")
+            if (!deleteButton) return
 
-            tasks = tasks.filter(task => task.id !== taskID);
+            const deletedTask = deleteButton.closest(".task")
+            const taskID = deletedTask.id
 
-            deletedTask.remove();
-            saveTasks();
-        });
-    });
+            tasks = tasks.filter(task => task.id !== taskID)
+
+            deletedTask.remove()
+            saveTasks(tasks)
+        })
+    })
 }
 
-// Clear Text input / Priority Selector / Date Input of the task Creator
+// Reset all inputs and selectors in the task creation frame
 function clearTaskCreator() {
-    let select = document.getElementById("newTask__priority")
-    let input = document.querySelectorAll(".taskCreator__inputGroup input")
+    const select = document.getElementById("newTask__priority")
+    const input = document.querySelectorAll(".taskCreator__inputGroup input")
 
     select.selectedIndex = 0
     input.forEach(element => {
@@ -53,7 +48,7 @@ function clearTaskCreator() {
     })
 }
 
-// Listen "click" on buttons to hide/show Task creator frame
+// Display/Hide the task creator frame
 function initTaskCreatorDisplayer() {
     const taskCreatorFrame = document.getElementById("taskCreator__frame")
     const taskCreatorButton = document.getElementById("createTask__button")
@@ -74,7 +69,29 @@ function initTaskCreatorDisplayer() {
     })
 }
 
-// Verify all required fields are set
+// Verify all required infos are set, create task, and clear inputs
+function initTaskCreator() {
+    const newTaskForm = document.getElementById("taskCreator__frame")
+    let taskNameInput = document.getElementById("newTask__name")
+    let taskPriorityInput = document.getElementById("newTask__priority")
+    let taskDueDateInput = document.getElementById("date__picker")
+    
+    newTaskForm.addEventListener("submit", (event) => {
+        event.preventDefault()
+        if (verifyNewTaskInput(taskNameInput, taskPriorityInput)) {
+            createTask(
+                taskNameInput.value, 
+                taskPriorityInput.value, 
+                taskDueDateInput.value
+            )
+
+            clearTaskCreator()
+        }
+    })
+
+}
+
+// Verify all required fields of inputs are'nt null
 function verifyNewTaskInput(name, priority) {
     const taskErrorName = document.getElementById("taskError_name")
     const taskErrorPriority = document.getElementById("taskError_priority")
@@ -95,23 +112,17 @@ function verifyNewTaskInput(name, priority) {
     return true
 }
 
-// Create new task in "Active Task" div and store it in localStorage
+// Create task in list and in local storage
 function createTask(taskName, taskPriority, taskDate) {
-    let newTaskid = Date.now().toString()
+    const newTaskid = Date.now().toString()
     if (taskDate) {
         taskDate = taskDate.split("-").reverse().join("/")
     } else {
         taskDate = "No date"
     }
 
-    let priority = "High"
-    if (taskPriority === "low") {
-        priority = "Low"
-    } else if (taskPriority === "medium") {
-        priority = "Medium"
-    }
 
-    let newTask = {
+    const newTask = {
         id: newTaskid,
         name: taskName,
         priority: taskPriority,
@@ -124,16 +135,15 @@ function createTask(taskName, taskPriority, taskDate) {
         newTaskid, 
         taskName, 
         taskPriority, 
-        priority, 
         taskDate)
 
-    saveTasks()
+    saveTasks(tasks)
 }
 
-// Div creator
-function createTaskDiv(id, name, priorityClass, priority, date) {
+// Create HTML code to display the new task in the list
+function createTaskDiv(id, name, priority, date) {
     const taskCategory = document.getElementById("activeTasksCategory")
-    let newTaskDiv = document.createElement("div")
+    const newTaskDiv = document.createElement("div")
     newTaskDiv.className = "task"
     newTaskDiv.id = id
     
@@ -145,7 +155,7 @@ function createTaskDiv(id, name, priorityClass, priority, date) {
         </button>
         <p class="task__name">${name}</p>
         <div class="task__priorityBadge">
-            <p class="${priorityClass}">${priority}</p>
+            <p class="${priority}">${priority}</p>
         </div>
         <p>${date}</p>
         <div class="checkbox-wrapper">
@@ -156,31 +166,12 @@ function createTaskDiv(id, name, priorityClass, priority, date) {
     taskCategory.appendChild(newTaskDiv)
 }
 
-// Init Task Creator
-function initTaskCreator() {
-    const newTaskForm = document.getElementById("taskCreator__frame")
-    let taskNameInput = document.getElementById("newTask__name")
-    let taskPriorityInput = document.getElementById("newTask__priority")
-    let taskDueDateInput = document.getElementById("date__picker")
-    
-    newTaskForm.addEventListener("submit", (event) => {
-        event.preventDefault()
-        if (verifyNewTaskInput(taskNameInput, taskPriorityInput)) {
-
-            createTask(
-                taskNameInput.value, 
-                taskPriorityInput.value, 
-                taskDueDateInput.value)
-
-            clearTaskCreator()
-        }
-    })
-
-}
-
+// run the script
 function main() {
-    loadTasks()
+    addStoredTasks()
     initTaskCreatorDisplayer()
     initTaskCreator()
     deleteTask()
 }
+
+main()

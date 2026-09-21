@@ -1,3 +1,4 @@
+// Switch colors for Dark/Light mode by clicking the Sun/Moon logo
 (function () {
     const root = document.documentElement
 

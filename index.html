@@ -7,8 +7,7 @@
     
     <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/theme-toggler.js"></script>
-    <script src="scripts/script.js" defer></script>
-    <script src="scripts/main.js" defer></script>
+    <script type="module" src="scripts/script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,9 +83,9 @@
                     <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading">
                     <select name="priorityLevel__selector" id="newTask__priority">
                         <option value="">Select priority</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
                     </select>
                     <input type="date" id="date__picker">
                 </div>
@@ -136,28 +135,11 @@
                         <input type="checkbox" id="task-1">
                         <label for="task-1" class="check-box">
                     </div>
-                </div>
-
-                <div class="task">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <p class="task__name">Make responsive design</p>
-                    <div class="task__priorityBadge">
-                        <p class="medium">Medium</p>
-                    </div>
-                    <p>06/01/2027</p>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="task-2">
-                        <label for="task-2" class="check-box">
-                    </div>
                 </div> -->
             </section>
 
             <!-- Completed tasks Section -->
-            <section class="task_category">
+            <section id="completedTasksCategory" class="task_category">
                 <div class="taskCategory__header">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
@@ -173,40 +155,7 @@
                     <h2>Priority</h2>
                     <h2>Due date</h2>
                 </div>
-                <!-- TASK EXEMPLE -->
-                <!-- <div class="task">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <p class="task__name">Finish desktop design and start coding it</p>
-                    <div class="task__priorityBadge">
-                        <p class="medium">Medium</p>
-                    </div>
-                    <p>29/09/2026</p>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="task-3" checked>
-                        <label for="task-3" class="check-box">
-                    </div>
-                </div>
-
-                <div class="task">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <p class="task__name">Example of how a task with a very long name is displayed. I don't really have any ideas, so I'm just going to write some nonsense.</p>
-                    <div class="task__priorityBadge">
-                        <p class="low">Low</p>
-                    </div>
-                    <p>31/09/2026</p>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="task-4" checked>
-                        <label for="task-4" class="check-box">
-                    </div>
-                </div> -->
+                
             </section>
 
         </section>
