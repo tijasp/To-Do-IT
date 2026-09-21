@@ -36,4 +36,5 @@ I am currently working on it!
 
   
 ## 📸 Screenshots
-![enter image description here](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/To-Do%20IT%20screenshot%201.png)
+![Screenshot of page with light mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%201.png)
+![Screenshot of page with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%202.png)
