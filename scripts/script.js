@@ -9,7 +9,8 @@ function addStoredTasks() {
             task.id,
             task.name,
             task.priority,
-            task.due_date
+            task.due_date,
+            task.completed
         )
     })
     updateTaskCounter()
@@ -104,7 +105,6 @@ function initTaskCreator() {
             clearTaskCreator()
         }
     })
-
 }
 
 // Verify all required fields of inputs are'nt null
@@ -137,7 +137,6 @@ function createTask(taskName, taskPriority, taskDate) {
         taskDate = "No date"
     }
 
-
     const newTask = {
         id: newTaskid,
         name: taskName,
@@ -148,22 +147,29 @@ function createTask(taskName, taskPriority, taskDate) {
     tasks.push(newTask)
 
     createTaskDiv(
-        newTaskid, 
-        taskName, 
-        taskPriority, 
-        taskDate)
+        newTask.id, 
+        newTask.name, 
+        newTask.priority, 
+        newTask.due_date,
+        newTask.completed
+    )
 
     saveTasks(tasks)
     updateTaskCounter()
 }
 
 // Create HTML code to display the new task in the list
-function createTaskDiv(id, name, priority, date) {
+function createTaskDiv(id, name, priority, date, status) {
     const taskCategory = document.getElementById("activeTasksCategory")
     const newTaskDiv = document.createElement("div")
+    let checkedAttribute = ""
     newTaskDiv.className = "task"
     newTaskDiv.id = id
     
+    if (status) {
+        checkedAttribute = "checked"
+    }
+
     newTaskDiv.innerHTML = `
         <button class="delete">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -175,34 +181,59 @@ function createTaskDiv(id, name, priority, date) {
             <p class="${priority}">${priority}</p>
         </div>
         <p>${date}</p>
-        <div class="checkbox-wrapper">
-            <input type="checkbox" id="task-${id}">
-            <label for="task-${id}" class="check-box">
-        </div>`
+        <input type="checkbox" ${checkedAttribute}>`
 
     taskCategory.appendChild(newTaskDiv)
 }
 
 // Delete a task from list and save localstorage after
 function deleteTask() {
-    const containers = [
+    const categories = [
         document.getElementById("activeTasksCategory"),
         document.getElementById("completedTasksCategory")
     ]
 
-    containers.forEach(container => {
-        container.addEventListener("click", (e) => {
+    categories.forEach(category => {
+        category.addEventListener("click", (e) => {
             const deleteButton = e.target.closest(".delete")
             if (!deleteButton) return
 
             const deletedTask = deleteButton.closest(".task")
             const taskID = deletedTask.id
 
+            console.log(taskID)
+
             tasks = tasks.filter(task => task.id !== taskID)
 
             deletedTask.remove()
             saveTasks(tasks)
             updateTaskCounter()
+        })
+    })
+}
+
+// Change the task status in tasks table, save it to local storage and display the task in the good category
+function initTaskStatusChange() {
+    let tasksCategories = document.querySelectorAll(".task_category")
+
+    tasksCategories.forEach(category => {
+        category.addEventListener("change", (e) => {
+            if (!e.target.matches('input[type="checkbox"]')) return
+
+            const taskID = e.target.closest(".task").id
+            const task = tasks.find(task => task.id === taskID);
+            console.log(taskID)
+
+            if (e.target.checked) {
+                task.completed = true
+                console.log("Status set to Completed Tasks")
+            } else {
+                task.completed = false
+                console.log("Status set to Active Tasks")
+            }
+
+            console.log(tasks)
+            saveTasks(tasks)
         })
     })
 }
@@ -214,6 +245,7 @@ function main() {
     initTaskCreatorDisplayer()
     initTaskCreator()
     deleteTask()
+    initTaskStatusChange()
 }
 
 main()
