@@ -8,14 +8,6 @@
 
 ####  *To-Do IT* is actually hosted here : https://todo-it-project.netlify.app
 
-  
-
-## 👨‍💻 *Project in development*
-
-For the moment, nothing is functional.
-
-I am currently working on it!
-
 
 ## ✨ Features:
 - Task creation (with Priority badge and Due date)
