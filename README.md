@@ -19,7 +19,7 @@
 - Task grouping by category (active/completed)
 - Sort task order by priority/due date
 - Responsive design
-- Category system
+- Category system (different lists)
 - Login system
 
   
