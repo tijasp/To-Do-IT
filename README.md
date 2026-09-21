@@ -18,16 +18,16 @@ I am currently working on it!
 
 
 ## ✨ Features:
+- Task creation (with Priority badge and Due date)
+- Tasks are saved in localStorage
+- Delete task
 - Dark/Light Mode
 
 ##  ➕ Features to be added:
 
 ### V1:
-- Task creation (very usefull for a to-do list ! 😆)
 - Task grouping by category (active/completed)
-- Delete task
 - Sort task order by priority/due date
-- Local storage
 
 ### V2:
 - Responsive design
