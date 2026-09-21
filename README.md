@@ -11,15 +11,15 @@
 
 ## ✨ Actual Features:
 - Task creation (with Priority badge and Due date)
+- Task grouping by category (active/completed)
 - Tasks are saved in localStorage
 - Delete task
 - Dark/Light Mode
 
 ##  ➕ Features to be added:
-- Task grouping by category (active/completed)
 - Sort task order by priority/due date
 - Responsive design
-- Category system (different lists)
+- Creation of several different lists
 - Login system
 
   
