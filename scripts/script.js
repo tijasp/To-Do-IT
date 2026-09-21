@@ -15,30 +15,6 @@ function addStoredTasks() {
     updateTaskCounter()
 }
 
-// Delete a task from list and save localstorage after
-function deleteTask() {
-    const containers = [
-        document.getElementById("activeTasksCategory"),
-        document.getElementById("completedTasksCategory")
-    ]
-
-    containers.forEach(container => {
-        container.addEventListener("click", (e) => {
-            const deleteButton = e.target.closest(".delete")
-            if (!deleteButton) return
-
-            const deletedTask = deleteButton.closest(".task")
-            const taskID = deletedTask.id
-
-            tasks = tasks.filter(task => task.id !== taskID)
-
-            deletedTask.remove()
-            saveTasks(tasks)
-            updateTaskCounter()
-        })
-    })
-}
-
 // When called, it update the tasks counter of the Category lists
 function updateTaskCounter() {
     const activeCounter = document.getElementById("activeTask__Counter")
@@ -67,6 +43,24 @@ function clearTaskCreator() {
     select.selectedIndex = 0
     input.forEach(element => {
         element.value = ""
+    })
+}
+
+// Hide/Display Tasks category by clicking arrows
+function initCategoryDisplayer() {
+    let arrowButtons = document.querySelectorAll(".arrowCategoryButton")
+
+    arrowButtons.forEach(arrow => {
+        arrow.addEventListener("click", (e) => {
+            const currentArrowButton = e.target.closest(".arrowCategoryButton")
+            currentArrowButton.classList.toggle("rotated")
+
+            const choosedCategory = e.target.closest(".task_category")
+            const taskListToEdit = choosedCategory.querySelectorAll(".task")
+            taskListToEdit.forEach(child => {
+                child.classList.toggle("hide")
+            })
+        })
     })
 }
 
@@ -189,9 +183,34 @@ function createTaskDiv(id, name, priority, date) {
     taskCategory.appendChild(newTaskDiv)
 }
 
+// Delete a task from list and save localstorage after
+function deleteTask() {
+    const containers = [
+        document.getElementById("activeTasksCategory"),
+        document.getElementById("completedTasksCategory")
+    ]
+
+    containers.forEach(container => {
+        container.addEventListener("click", (e) => {
+            const deleteButton = e.target.closest(".delete")
+            if (!deleteButton) return
+
+            const deletedTask = deleteButton.closest(".task")
+            const taskID = deletedTask.id
+
+            tasks = tasks.filter(task => task.id !== taskID)
+
+            deletedTask.remove()
+            saveTasks(tasks)
+            updateTaskCounter()
+        })
+    })
+}
+
 // run the script
 function main() {
     addStoredTasks()
+    initCategoryDisplayer()
     initTaskCreatorDisplayer()
     initTaskCreator()
     deleteTask()

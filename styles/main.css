@@ -59,6 +59,10 @@ a {
     display: none;
 }
 
+.rotated {
+    transform: rotate(-90deg);
+}
+
 h1 {
     font-family: var(--header-font);
     font-size: var(--header-font-size);
@@ -104,8 +108,8 @@ option {
     color: var(--black-comp);
 }
 
-/* Displaying */
 
+/* Displaying */
 html {
     background-color: var(--main-background);
 }
