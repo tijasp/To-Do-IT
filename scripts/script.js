@@ -184,7 +184,9 @@ function createTaskDiv(id, name, priority, date, status) {
             <p class="${priority}">${priority}</p>
         </div>
         <p>${date}</p>
-        <input type="checkbox" ${checkedAttribute}>`
+        <div class="checkbox-wrapper-13">
+            <input type="checkbox" ${checkedAttribute}>
+        </div>`
 
     taskCategory.appendChild(newTaskDiv)
 }
