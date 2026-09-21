@@ -148,3 +148,27 @@ main {
     background-color: var(--light-green);
     border-radius: 25px;
 }
+
+/* Animations */
+@keyframes horizontal-shaking {
+    0% { transform: rotate(6deg); }
+    5% { transform: rotate(0); }
+    10% { transform: rotate(-6deg); }
+    15% { transform: rotate(0); }
+    20% { transform: rotate(6deg); }
+    25% { transform: rotate(0); }
+    30% { transform: rotate(-6deg); }
+    35% { transform: rotate(0); }
+    40% { transform: rotate(6deg); }
+    45% { transform: rotate(0); }
+    50% { transform: rotate(-6deg); }
+    55% { transform: rotate(0); }
+    60% { transform: rotate(6deg); }
+    65% { transform: rotate(0); }
+    70% { transform: rotate(-6deg); }
+    75% { transform: rotate(0); }
+    80% { transform: rotate(6deg); }
+    85% { transform: rotate(0); }
+    90% { transform: rotate(-6deg); }
+    100% { transform: rotate(0); }
+}

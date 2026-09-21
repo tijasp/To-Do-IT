@@ -293,6 +293,9 @@ main {
     justify-content: center;
 }
 
+.task button:hover {
+    animation: horizontal-shaking 2s ease infinite;
+}
 
 /* Checkbox (from GETCSSSCAN) */
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
