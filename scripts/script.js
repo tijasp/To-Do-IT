@@ -1,7 +1,7 @@
 import { loadStoredTasks, saveTasks } from "./localstorage.js"
 let tasks = loadStoredTasks()
 
-// Load all saved tasks from localstorage and show them on the list
+// Add all stored tasks in localStorage to the list
 function addStoredTasks() {
     tasks.forEach(task => {
 
@@ -12,6 +12,7 @@ function addStoredTasks() {
             task.due_date
         )
     })
+    updateTaskCounter()
 }
 
 // Delete a task from list and save localstorage after
@@ -33,8 +34,29 @@ function deleteTask() {
 
             deletedTask.remove()
             saveTasks(tasks)
+            updateTaskCounter()
         })
     })
+}
+
+// When called, it update the tasks counter of the Category lists
+function updateTaskCounter() {
+    const activeCounter = document.getElementById("activeTask__Counter")
+    const completedCounter = document.getElementById("completedTask__Counter")
+
+    let activeTasks = 0
+    let completedTasks = 0
+
+    tasks.forEach((element) => {
+        if (element.completed) {
+            completedTasks ++
+        } else {
+            activeTasks ++
+        }
+    })
+
+    activeCounter.textContent = activeTasks
+    completedCounter.textContent = completedTasks
 }
 
 // Reset all inputs and selectors in the task creation frame
@@ -138,6 +160,7 @@ function createTask(taskName, taskPriority, taskDate) {
         taskDate)
 
     saveTasks(tasks)
+    updateTaskCounter()
 }
 
 // Create HTML code to display the new task in the list
