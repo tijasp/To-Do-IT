@@ -9,19 +9,15 @@
 ####  *To-Do IT* is actually hosted here : https://todo-it-project.netlify.app
 
 
-## ✨ Features:
+## ✨ Actual Features:
 - Task creation (with Priority badge and Due date)
 - Tasks are saved in localStorage
 - Delete task
 - Dark/Light Mode
 
 ##  ➕ Features to be added:
-
-### V1:
 - Task grouping by category (active/completed)
 - Sort task order by priority/due date
-
-### V2:
 - Responsive design
 - Category system
 - Login system
