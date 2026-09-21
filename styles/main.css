@@ -59,11 +59,6 @@ a {
     display: none;
 }
 
-button:hover,
-input[type="submit"] {
-    opacity: 75%;
-}
-
 h1 {
     font-family: var(--header-font);
     font-size: var(--header-font-size);
