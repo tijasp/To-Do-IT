@@ -1,6 +1,27 @@
-import { loadStoredTasks, saveTasks } from "./localstorage.js"
+import { loadStoredTasks, saveTasks, loadSavedTheme, saveTheme, loadSavedSortMode, saveSortMode } from "./localstorage.js"
 let tasks = loadStoredTasks()
-let taskSortMode = "priority";
+let taskSortMode = loadSavedSortMode();
+
+// Change Theme and save it in localStorage
+function toggleDarkMode() {
+    const root = document.documentElement
+    const currentTheme = root.getAttribute("data-theme")
+    const newTheme = currentTheme === "dark" ? "light" : "dark"
+    root.setAttribute("data-theme", newTheme)
+    saveTheme(newTheme)
+}
+
+// Change the theme when you click on theme toggle button
+function initThemeToggler() {
+    document.addEventListener("DOMContentLoaded", () => {
+        const togglers = document.querySelectorAll("[data-theme-toggler]")
+        togglers.forEach((toggler) => {
+            toggler.addEventListener("click", () => {
+                toggleDarkMode()
+            })
+        });
+    });
+}
 
 // Recreates all tasks to put them in the right place
 function renderTasks() {
@@ -8,9 +29,9 @@ function renderTasks() {
 
     oldTasks.forEach(task => task.remove());
 
-    if (taskSortMode === "priority") {
+    if (taskSortMode === "sortBy-priority") {
         sortByPriority();
-    } else {
+    } else if (taskSortMode === "sortBy-dueDate") {
         sortByDate();
     }
 
@@ -209,8 +230,6 @@ function initTaskDeleteButton() {
             const deletedTask = deleteButton.closest(".task")
             const taskID = deletedTask.id
 
-            console.log(taskID)
-
             tasks = tasks.filter(task => task.id !== taskID)
 
             deletedTask.remove()
@@ -276,32 +295,47 @@ function sortByDate() {
 // Init Event listener on "Sort By" radio buttons
 function initTaskSorting() {
     const sortRadioButtons = document.querySelectorAll('input[name="sort__choice"]')
+    const radioDueDate = document.getElementById("sortBy-dueDate")
+
+    if (taskSortMode === "sortBy-dueDate") radioDueDate.checked = true
 
     sortRadioButtons.forEach(radio => {
         radio.addEventListener("change", (e) => {
             const sortingMode = e.target.id;
-            console.log(sortingMode)
 
-            if (sortingMode === "sortBy-priority") {
-                taskSortMode = "priority";
-            } else if (sortingMode === "sortBy-dueDate") {
-                taskSortMode = "dueDate";
-            }
-            
+            taskSortMode = sortingMode
+            saveSortMode(sortingMode)
             renderTasks();
         })
     })
 }
 
-// run the script
-function main() {
-    renderTasks()
+// Delete all tasks with status "Completed" and save new task list
+function initDeleteAllTasksButton() {
+    const deleteAllButton = document.getElementById("deleteAllTasks__button")
+
+    deleteAllButton.addEventListener("click", () => {
+        tasks = tasks.filter(task => task.completed === false)
+        renderTasks()
+        saveTasks(tasks)
+    })
+}
+
+// Create all Event Listeners of the script
+function initEventListeners() {
+    initThemeToggler()
     initCategoryDisplayer()
     initTaskCreatorDisplayer()
     initTaskCreator()
     initTaskDeleteButton()
     initTaskStatusChange()
     initTaskSorting()
+    initDeleteAllTasksButton()
 }
 
-main()
+// run the script
+export function main() {
+    loadSavedTheme()
+    renderTasks()
+    initEventListeners()
+}
