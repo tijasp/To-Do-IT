@@ -35,10 +35,8 @@ export function clearTaskCreator() {
     const select = document.getElementById("newTask__priority")
     const input = document.querySelectorAll(".taskCreator__inputGroup input")
     const taskErrorName = document.getElementById("taskError_name")
-    const taskErrorPriority = document.getElementById("taskError_priority")
 
     taskErrorName.classList.add("hide")
-    taskErrorPriority.classList.add("hide")
 
     select.selectedIndex = 0
     input.forEach(element => {
@@ -47,24 +45,16 @@ export function clearTaskCreator() {
 }
 
 // Check that all required inputs are filled in. Otherwise, display an error message explaining the issue.
-export function verifyNewTaskInput(name, priority) {
+export function verifyNewTaskInput(name) {
     const taskErrorName = document.getElementById("taskError_name")
-    const taskErrorPriority = document.getElementById("taskError_priority")
 
     if (name.value === "") {
         taskErrorName.classList.remove("hide")
         return false
     } else {
         taskErrorName.classList.add("hide")
+        return true
     }
-
-    if (priority.value === "") {
-        taskErrorPriority.classList.remove("hide")
-        return false
-    } else {
-        taskErrorPriority.classList.add("hide")
-    }
-    return true
 }
 
 // Rotate the arrow button and hide/show the desired category.
@@ -125,9 +115,10 @@ export function deleteCompletedTasks() {
 // Sort tasks from highest to lowest priority.
 function sortByPriority(taskList) {
     const priorityOrder = {
-        Low: 1,
-        Medium: 2,
-        High: 3
+        Nothing: 1,
+        Low: 2,
+        Medium: 3,
+        High: 4
     };
     taskList.sort((a, b) => {
         return priorityOrder[b.priority] - priorityOrder[a.priority];

@@ -8,7 +8,7 @@ export function createTask() {
     let taskPriorityInput = document.getElementById("newTask__priority")
     let taskDueDateInput = document.getElementById("date__picker")
 
-    if (verifyNewTaskInput(taskNameInput, taskPriorityInput)) {
+    if (verifyNewTaskInput(taskNameInput)) {
         const tasks = loadStoredTasks()
         const newTaskid = Date.now().toString()
         let taskDate = taskDueDateInput.value
