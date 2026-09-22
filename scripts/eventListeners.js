@@ -80,7 +80,7 @@ function initTaskStatus() {
 
             taskStatusChange(e.target)
             updateTaskCounter()
-            renderTasks()
+            renderTasks(e.target.closest("task_category"))
         })
     })
 }

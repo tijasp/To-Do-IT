@@ -70,10 +70,12 @@ export function verifyNewTaskInput(name, priority) {
 // Rotate the arrow button and hide/show the desired category.
 export function categoryDisplayer(clickedArrow) {
     const currentArrowButton = clickedArrow.target.closest(".arrowCategoryButton")
-    currentArrowButton.classList.toggle("rotated")
-
     const choosedCategory = clickedArrow.target.closest(".task_category")
     const taskListToEdit = choosedCategory.querySelectorAll(".task")
+
+    choosedCategory.classList.toggle("hidden")
+    currentArrowButton.classList.toggle("rotated")
+
     taskListToEdit.forEach(child => {
         child.classList.toggle("hide")
     })
