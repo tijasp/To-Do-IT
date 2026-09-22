@@ -1,9 +1,9 @@
-import { loadStoredTasks, saveTasks , loadSavedSortMode, saveSortMode} from "./localstorage.js"
-import { toggleDarkMode, clearTaskCreator, verifyNewTaskInput, updateTaskCounter } from "./utils.js"
-import { createTask } from "./taskManager.js"
+import { loadSavedSortMode, saveSortMode} from "./localstorage.js"
+import { toggleDarkMode, clearTaskCreator, updateTaskCounter, categoryDisplayer, toggleDisplay, deleteTask, deleteCompletedTasks } from "./utils.js"
+import { createTask, taskStatusChange } from "./taskManager.js"
 import { renderTasks } from "./taskRenderer.js"
 
-// Change the theme when you click on theme toggle button
+// Change the Dark/Light theme when you click on the toggler
 function initThemeToggler() {
     document.addEventListener("DOMContentLoaded", () => {
         const togglers = document.querySelectorAll("[data-theme-toggler]")
@@ -15,68 +15,44 @@ function initThemeToggler() {
     });
 }
 
-// Hide/Display Tasks category by clicking arrows
-function initCategoryDisplayer() {
+// Shows/hides task categories (Active/Completed) when clicking the arrow
+function initCategoryDisplay() {
     let arrowButtons = document.querySelectorAll(".arrowCategoryButton")
 
     arrowButtons.forEach(arrow => {
         arrow.addEventListener("click", (e) => {
-            const currentArrowButton = e.target.closest(".arrowCategoryButton")
-            currentArrowButton.classList.toggle("rotated")
-
-            const choosedCategory = e.target.closest(".task_category")
-            const taskListToEdit = choosedCategory.querySelectorAll(".task")
-            taskListToEdit.forEach(child => {
-                child.classList.toggle("hide")
-            })
+            categoryDisplayer(e)
         })
     })
 }
 
-// Display/Hide the task creator frame
-function initTaskCreatorDisplayer() {
-    const taskCreatorFrame = document.getElementById("taskCreator__frame")
-    const taskCreatorButton = document.getElementById("createTask__button")
-    const cancelButton = document.getElementById("cancel-button")
+// Shows/hides task creator frame when clicking the "Create task" button or "Cancel" button
+function initTaskCreatorDisplay() {
+    const buttons = [
+        document.getElementById("createTask__button"),
+        document.getElementById("cancel-button")
+    ]
 
-    function toggleDisplay() {
-        taskCreatorButton.classList.toggle("active")
-        taskCreatorFrame.classList.toggle("hide")
-        clearTaskCreator()
-    }
-
-    taskCreatorButton.addEventListener("click", () => {
-        toggleDisplay()
-    })
-
-    cancelButton.addEventListener("click", () => {
-        toggleDisplay()
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            clearTaskCreator()
+            toggleDisplay()
+        })
     })
 }
 
-// Verify all required infos are set, create task, and clear inputs
-function initTaskCreator() {
+// Launches createTask() function after the task creation form is submitted
+function initTaskCreation() {
     const newTaskForm = document.getElementById("taskCreator__frame")
-    let taskNameInput = document.getElementById("newTask__name")
-    let taskPriorityInput = document.getElementById("newTask__priority")
-    let taskDueDateInput = document.getElementById("date__picker")
     
     newTaskForm.addEventListener("submit", (event) => {
         event.preventDefault()
-        if (verifyNewTaskInput(taskNameInput, taskPriorityInput)) {
-            createTask(
-                taskNameInput.value, 
-                taskPriorityInput.value, 
-                taskDueDateInput.value
-            )
-
-            clearTaskCreator()
-        }
+        createTask()
     })
 }
 
-// Delete a task from list and save localstorage after
-function initTaskDeleteButton() {
+// Deletes a task when the delete button is clicked
+function initTaskDelete() {
     const categories = [
         document.getElementById("activeTasksCategory"),
         document.getElementById("completedTasksCategory")
@@ -84,49 +60,32 @@ function initTaskDeleteButton() {
 
     categories.forEach(category => {
         category.addEventListener("click", (e) => {
-            const deleteButton = e.target.closest(".delete")
-            if (!deleteButton) return
+            const clickedButton = e.target.closest("button")
 
-            const deletedTask = deleteButton.closest(".task")
-            const taskID = deletedTask.id
+            if (!clickedButton) return
+            if (!clickedButton.classList.contains("delete")) return
 
-            let tasks = loadStoredTasks()
-            tasks = tasks.filter(task => task.id !== taskID)
-
-            deletedTask.remove()
-            saveTasks(tasks)
-            updateTaskCounter()
+            deleteTask(clickedButton)
         })
     })
 }
 
-// Change the task status in tasks table, save it to local storage and display the task in the good category and update the task counter
-function initTaskStatusChange() {
+// Detects a change in a task's status after the corresponding checkbox is clicked. The task counter is updated, and the tasks are sorted into their respective categories
+function initTaskStatus() {
     const tasksCategories = document.querySelectorAll(".task_category")
 
     tasksCategories.forEach(category => {
         category.addEventListener("input", (e) => {
             if (!e.target.matches('input[type="checkbox"]')) return
 
-            const tasks = loadStoredTasks()
-            const updatedTask = e.target.closest(".task")
-            let taskID = updatedTask.id
-            const task = tasks.find(task => task.id === taskID);
-
-            if (e.target.checked) {
-                task.completed = true
-            } else {
-                task.completed = false
-            }
-
-            saveTasks(tasks)
+            taskStatusChange(e.target)
             updateTaskCounter()
             renderTasks()
         })
     })
 }
 
-// Init Event listener on "Sort By" radio buttons
+// Detects the change in sorting mode. Then sorts the tasks according to the sorting mode
 function initTaskSorting() {
     let taskSortMode = loadSavedSortMode()
     const sortRadioButtons = document.querySelectorAll('input[name="sort__choice"]')
@@ -145,27 +104,24 @@ function initTaskSorting() {
     })
 }
 
-// Delete all tasks with status "Completed" and save new task list
-function initDeleteAllTasksButton() {
+// Deletes all completed tasks after clicking the respective button.
+function initDeleteCompletedTasks() {
     const deleteAllButton = document.getElementById("deleteAllTasks__button")
 
     deleteAllButton.addEventListener("click", () => {
-        let tasks = loadStoredTasks()
-        tasks = tasks.filter(task => task.completed === false)
-        saveTasks(tasks)
+        deleteCompletedTasks()
         renderTasks()
     })
 }
 
-
-// Create all Event Listeners of the script
+// Run all the evenListeners of this file.
 export function initEventListeners() {
     initThemeToggler()
-    initCategoryDisplayer()
-    initTaskCreatorDisplayer()
-    initTaskCreator()
-    initTaskDeleteButton()
-    initTaskStatusChange()
+    initCategoryDisplay()
+    initTaskCreatorDisplay()
+    initTaskCreation()
+    initTaskDelete()
+    initTaskStatus()
     initTaskSorting()
-    initDeleteAllTasksButton()
+    initDeleteCompletedTasks()
 }

@@ -1,7 +1,7 @@
 import { loadStoredTasks, loadSavedSortMode } from "./localstorage.js"
 import { sortTasks, updateTaskCounter } from "./utils.js"
 
-// Recreates all tasks to put them in the right place
+// Deletes and recreates all tasks based on the sorting method to ensure an up-to-date task list. And then update de task counter
 export function renderTasks() {
     let tasks = loadStoredTasks()
     let taskSortMode = loadSavedSortMode()
@@ -24,7 +24,7 @@ export function renderTasks() {
     updateTaskCounter();
 }
 
-// Create HTML code to display the new task in the list
+// Add a task to the HTML
 function createTaskDiv(id, name, priority, date, status) {
     let taskCategory = ""
     const newTaskDiv = document.createElement("div")
