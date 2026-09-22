@@ -50,6 +50,7 @@ input[type="radio"] {
 }
 
 a {
+    color: var(--black-comp);
     text-decoration: none;
 }
 
