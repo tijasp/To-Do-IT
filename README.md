@@ -7,15 +7,16 @@
 ## Feel free to give a star ⭐ !
 
 ####  *To-Do IT* is actually hosted here : https://todo-it-project.netlify.app
-
+For everything to work properly, this site needs to be run on a server (local or otherwise). If you are unable to start a local server, you can use the link above to access the site anyway :D
 
 ## ✨ Actual Features:
-- Task creation (with Priority badge and Due date)
+- Task creation (with Priority and Due date)
 - Task grouping by category (active/completed)
 - Sort task order by priority/due date
-- Tasks are saved in localStorage
-- Delete task
-- Dark/Light Mode
+- Dark/Light Theme Mode
+- Tasks and Theme/Sorting preferences are stored in localStorage
+- Delete task one by one
+- Delete all completed tasks in one click
 
 ##  ➕ Features to be added:
 
