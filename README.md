@@ -6,7 +6,7 @@
 ![To-Do-IT](https://socialify.git.ci/tijasp/To-Do-IT/image?custom_language=JavaScript&font=Source+Code+Pro&forks=1&issues=1&language=1&name=1&owner=1&pattern=Charlie+Brown&pulls=1&stargazers=1&theme=Auto)
 ## Feel free to give a star ⭐ !
 
-####  *To-Do IT* is actually hosted here : https://todo-it-project.netlify.app
+####  *To-Do IT* is actually hosted here : https://tijasp.github.io/To-Do-IT/
 For everything to work properly, this site needs to be run on a server (local or otherwise). If you are unable to start a local server, you can use the link above to access the site anyway :D
 
 ## ✨ Actual Features:
