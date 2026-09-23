@@ -13,6 +13,8 @@ For everything to work properly, this site needs to be run on a server (local or
 - Task creation (with Priority and Due date)
 - Task grouping by category (active/completed)
 - Sort task order by priority/due date
+- Change the date color when it is upcoming or overdue
+- Tasks Stats
 - Dark/Light Theme Mode
 - Tasks and Theme/Sorting preferences are stored in localStorage
 - Delete task one by one
@@ -31,3 +33,4 @@ For everything to work properly, this site needs to be run on a server (local or
 ![Screenshot of desktop version with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%202.png)
 ![Screenshot of mobile version with light mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%203.png)
 ![Screenshot of mobile version with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%204.png)
+![Screenshot of mobile version with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%205.png)
