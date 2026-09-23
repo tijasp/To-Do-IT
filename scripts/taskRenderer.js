@@ -96,6 +96,7 @@ function createTaskDivMobile(id, name, priority, date, status) {
     }
 
     if (priority === "Nothing") priority = ""
+    if (date === "No date") date = ""
 
     newTaskDiv.innerHTML = `
         <button class="delete">
@@ -106,10 +107,10 @@ function createTaskDivMobile(id, name, priority, date, status) {
         <div class="taskInfos">
             <p class="task__name">${name}</p>
             <div class="secondary_infos">
-                <p>Due Date: ${date}</p>
-                <div class="task__priorityBadge">
-                    <p class="${priority}">${priority}</p>
-                </div>
+            <div class="task__priorityBadge">
+                <p class="${priority}">${priority}</p>
+            </div>
+                <p>${date}</p>
             </div>
         </div>
         <div class="checkbox-wrapper-13">
