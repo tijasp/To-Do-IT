@@ -24,6 +24,7 @@ For everything to work properly, this site needs to be run on a server (local or
 - Creation of several different lists
 - Login system
 
+
   
 ## 📸 Screenshots
 ![Screenshot of desktop version with light mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%201.png)
