@@ -193,6 +193,12 @@ main {
     gap: 0.75rem;
 }
 
+.errorMessage {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 .taskCreator__inputGroup {
     display: flex;
     align-items: center;
