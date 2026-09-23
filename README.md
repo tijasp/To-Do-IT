@@ -17,14 +17,16 @@ For everything to work properly, this site needs to be run on a server (local or
 - Tasks and Theme/Sorting preferences are stored in localStorage
 - Delete task one by one
 - Delete all completed tasks in one click
-
-##  ➕ Features to be added:
-
 - Responsive design
+
+##  ➕ Features to add:
+
 - Creation of several different lists
 - Login system
 
   
 ## 📸 Screenshots
-![Screenshot of page with light mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%201.png)
-![Screenshot of page with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%202.png)
+![Screenshot of desktop version with light mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%201.png)
+![Screenshot of desktop version with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%202.png)
+![Screenshot of mobile version with light mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%203.png)
+![Screenshot of mobile version with dark mode](https://raw.githubusercontent.com/tijasp/todo-it/refs/heads/main/assets/Screenshot%204.png)
