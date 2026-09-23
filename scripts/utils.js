@@ -130,6 +130,24 @@ export function displayMobileSettings() {
     })
 }
 
+export function verifyDate(date) {
+    if (date || date != "No date") {
+        let taskDate = convertDateFormat(date)
+
+        let today = new Date()
+        today.setHours(0, 0, 0, 0);
+
+        let thisWeek = new Date()
+        thisWeek.setDate(thisWeek.getDate() + 7)
+
+        if (taskDate < today) {
+            return "High"
+        } else if (taskDate <= thisWeek) {
+            return "Medium"
+        }
+    } else return ""
+}
+
 // Sort tasks from highest to lowest priority.
 function sortByPriority(taskList) {
     const priorityOrder = {

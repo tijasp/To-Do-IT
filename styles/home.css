@@ -12,7 +12,6 @@ main {
 .sideMenu {
     min-width: 19.5rem;
     max-width: 20rem;
-    height: 17rem;
     padding: 1rem;
 
     background-color: var(--white-comp);
@@ -23,6 +22,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     flex: 1 0 0;
 }
 
@@ -115,18 +115,54 @@ main {
     gap: 0.5rem;
 }
 
-#sideMenu__soonMessage {
+.stats {
     width: 100%;
-    padding: 0.1875rem;
-
-    font-family: var(--button-font);
-    font-size: var(--button-font-size);
-    font-weight: 400;
-    text-align: center;
-    color: var(--black-comp);
+    padding: 0.5rem 1rem 1rem 1rem;
 
     background-color: var(--main-background);
     border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.progress {
+    margin-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    gap: 0.25rem;
+}
+
+.progress-container {
+  width: 100%;
+  height: 0.6875rem;
+  background-color: var(--white-comp);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--light-green);
+  width: 0;
+  transition: width 0.4s ease;
+}
+
+.stats p {
+    color: var(--black-comp);
+}
+
+#upcomingCount {
+    color: var(--dark-orange);
+}
+
+#overdueCount {
+    color: var(--red);
 }
 
 /* Main Section */

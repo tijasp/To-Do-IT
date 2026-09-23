@@ -1,5 +1,5 @@
 import { loadStoredTasks, loadSavedSortMode } from "./localstorage.js"
-import { sortTasks, updateTaskCounter } from "./utils.js"
+import { sortTasks, updateTaskCounter, verifyDate } from "./utils.js"
 
 // Deletes and recreates all tasks based on the sorting method to ensure an up-to-date task list. And then update de task counter
 export function renderTasks() {
@@ -42,6 +42,7 @@ function createTaskDiv(id, name, priority, date, status) {
     let taskCategory = ""
     const newTaskDiv = document.createElement("div")
     let checkedAttribute = ""
+    let dateStatusClass = ""
     newTaskDiv.className = "task"
     newTaskDiv.id = id
     
@@ -58,6 +59,10 @@ function createTaskDiv(id, name, priority, date, status) {
 
     if (priority === "Nothing") priority = "N/A"
 
+    if (taskCategory === document.getElementById("activeTasksCategory")) {
+        dateStatusClass = `class="${verifyDate(date)}"`
+    }
+    
     newTaskDiv.innerHTML = `
         <button class="delete">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -68,7 +73,7 @@ function createTaskDiv(id, name, priority, date, status) {
         <div class="task__priorityBadge">
             <p class="${priority}">${priority}</p>
         </div>
-        <p>${date}</p>
+        <p ${dateStatusClass}>${date}</p>
         <div class="checkbox-wrapper-13">
             <input type="checkbox" ${checkedAttribute}>
         </div>`

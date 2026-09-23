@@ -76,14 +76,25 @@
                         </label>
                     </div>
                 </div>
-                <button id="deleteAllTasks__button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="desktop">
-                        <path d="M0.708252 3.54165H14.8749M6.37492 7.08331V10.625M9.20825 7.08331V10.625M2.12492 3.54165H13.4583L12.3391 13.6141C12.3007 13.9608 12.1358 14.2811 11.876 14.5137C11.6162 14.7464 11.2797 14.875 10.9309 14.875H4.65225C4.30349 14.875 3.96698 14.7464 3.70716 14.5137C3.44733 14.2811 3.28245 13.9608 3.24409 13.6141L2.12492 3.54165ZM4.49429 1.52077C4.60887 1.27779 4.79017 1.07239 5.01705 0.928542C5.24393 0.784689 5.50703 0.70831 5.77567 0.708313H9.8075C10.0763 0.708175 10.3395 0.784492 10.5665 0.928352C10.7935 1.07221 10.975 1.27768 11.0896 1.52077L12.0416 3.54165H3.54159L4.49429 1.52077Z" stroke="#FF7174" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Delete completed tasks
-                </button>
             </div>
-            <h2 id="sideMenu__soonMessage" class="desktop">More in future versions</h2>
+
+            <div class="stats"> <!-- Stats -->
+                <div class="progress"> <!-- Progress bar group -->
+                    <h2>Progress</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <p>Upcoming : <span id="upcomingCount">0</span></p>
+                <p>Overdue : <span id="overdueCount">0</span></p>
+            </div>
+
+            <button id="deleteAllTasks__button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="desktop">
+                    <path d="M0.708252 3.54165H14.8749M6.37492 7.08331V10.625M9.20825 7.08331V10.625M2.12492 3.54165H13.4583L12.3391 13.6141C12.3007 13.9608 12.1358 14.2811 11.876 14.5137C11.6162 14.7464 11.2797 14.875 10.9309 14.875H4.65225C4.30349 14.875 3.96698 14.7464 3.70716 14.5137C3.44733 14.2811 3.28245 13.9608 3.24409 13.6141L2.12492 3.54165ZM4.49429 1.52077C4.60887 1.27779 4.79017 1.07239 5.01705 0.928542C5.24393 0.784689 5.50703 0.70831 5.77567 0.708313H9.8075C10.0763 0.708175 10.3395 0.784492 10.5665 0.928352C10.7935 1.07221 10.975 1.27768 11.0896 1.52077L12.0416 3.54165H3.54159L4.49429 1.52077Z" stroke="#FF7174" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Delete completed tasks
+            </button>
         </section>
 
         <!-- Main section -->
