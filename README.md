@@ -3,7 +3,7 @@
 
 ##  Simple interactive To-Do list website !
 
-![todo-it](https://socialify.git.ci/tijasp/todo-it/image?font=Jost&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto)
+![To-Do-IT](https://socialify.git.ci/tijasp/To-Do-IT/image?custom_language=JavaScript&font=Source+Code+Pro&forks=1&issues=1&language=1&name=1&owner=1&pattern=Charlie+Brown&pulls=1&stargazers=1&theme=Auto)
 ## Feel free to give a star ⭐ !
 
 ####  *To-Do IT* is actually hosted here : https://todo-it-project.netlify.app
