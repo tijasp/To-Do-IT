@@ -406,3 +406,130 @@ main {
 .checkbox-wrapper-13 *:after {
     box-sizing: inherit;
 }
+
+
+@media screen and (max-width: 768px) {
+    main {
+        padding: 1rem;
+    
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .mainSection {
+        width: 100%;
+        min-width: 21.25rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .taskCreator {
+        min-width: 21.25rem;
+        padding: 0.5rem 1rem 1rem 1rem;
+        margin-bottom: 0;
+
+        align-self: normal;
+        gap: 1.5rem;
+    }
+
+    .taskCreator__inputGroup,
+    .taskCreator__buttonGroup {
+        flex-direction: column;
+    }
+
+    #newTask__name,
+    #newTask__priority,
+    #date__picker {
+        text-align: center;
+        align-self: normal;
+    }
+
+    .createTaskMobile {
+        padding: 0.25rem 1rem;
+
+        color: white;
+        background-color: var(--electric-sapphire);
+        border-radius: 5px;
+
+        align-items: center;
+        align-self: stretch;
+        gap: 0.5rem;
+    }
+
+    #createTask__button {
+        display: none;
+    }
+
+    .mobileTempHide {
+        display: none;
+    }
+
+    .mobileTasksOptions {
+        max-width: none;
+        min-width: none;
+        height: auto;
+        padding-top: 0.5rem;
+
+        flex: none;
+        align-self: normal;
+    }
+
+    .sortBy__div h2 {
+        font-family: var(--title-font);
+        font-size: var(--title-font-size);
+        font-weight: var(--title-weight);
+    }
+
+    #deleteAllTasks__button {
+        color: white;
+        background-color: var(--red);
+
+        justify-content: center;
+    }
+
+    .taskCategory__header {
+        display: flex;
+        padding: 0.5rem;
+        justify-content: flex-start;
+        align-items: center;
+        align-self: stretch;
+    }
+
+    .task {
+        width: 100%;
+        padding: 0.25rem 0.5rem;
+    
+        text-align: start;
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+    }
+
+    .taskInfos {
+        padding-right: 0.5rem;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        flex: 1 0 0;
+    }
+
+    .secondary_infos {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .secondary_infos p {
+        font-family: "Poppins";
+        font-size: 0.875rem;
+    }
+}

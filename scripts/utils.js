@@ -74,9 +74,14 @@ export function categoryDisplayer(clickedArrow) {
 export function toggleDisplay() {
     const taskCreatorFrame = document.getElementById("taskCreator__frame")
     const taskCreatorButton = document.getElementById("createTask__button")
+    const taskCreatorMobileButton = document.getElementById("createTaskMobile")
 
     taskCreatorButton.classList.toggle("active")
     taskCreatorFrame.classList.toggle("hide")
+
+    taskCreatorMobileButton.classList.toggle("createTaskMobile")
+    taskCreatorMobileButton.classList.toggle("mobile")
+    taskCreatorMobileButton.classList.toggle("hide")
 }
 
 // Detects the sort type and re-sorts using the other method. For example, with a priority-based sort, tasks with the same priority will be sorted by due date.
@@ -110,6 +115,19 @@ export function deleteCompletedTasks() {
     let tasks = loadStoredTasks()
     tasks = tasks.filter(task => task.completed === false)
     saveTasks(tasks)
+}
+
+export function displayMobileSettings() {
+    const elementsToToggle = [
+        document.getElementById("mobileParameters"),
+        document.querySelector(".mobileTasksOptions")
+    ]
+    const settingIcon = document.getElementById("settingsIcon")
+    settingIcon.classList.toggle("blackFilled")
+
+    elementsToToggle.forEach(element => {
+        element.classList.toggle("mobileTempHide")
+    })
 }
 
 // Sort tasks from highest to lowest priority.

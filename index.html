@@ -18,6 +18,11 @@
     <!-- Header -->
     <header>
         <div class="header__rowFlex">
+            <button id="mobileParameters">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                    <path id="settingsIcon" d="M21.0001 14.4375C19.7022 14.4375 18.4334 14.8224 17.3542 15.5435C16.275 16.2646 15.4339 17.2895 14.9372 18.4886C14.4405 19.6878 14.3105 21.0073 14.5637 22.2803C14.8169 23.5533 15.4419 24.7226 16.3597 25.6404C17.2775 26.5582 18.4468 27.1832 19.7198 27.4364C20.9928 27.6896 22.3123 27.5597 23.5115 27.063C24.7106 26.5663 25.7355 25.7251 26.4566 24.6459C27.1777 23.5667 27.5626 22.2979 27.5626 21C27.5574 19.2611 26.8644 17.5949 25.6348 16.3653C24.4052 15.1358 22.739 14.4427 21.0001 14.4375ZM35.1686 21C35.1651 21.6132 35.1202 22.2255 35.034 22.8326L39.0281 25.9596C39.2021 26.1032 39.3193 26.3041 39.3588 26.5262C39.3983 26.7483 39.3576 26.9772 39.2439 27.172L35.4655 33.6952C35.3506 33.8883 35.1714 34.0347 34.9592 34.1086C34.7471 34.1826 34.5156 34.1794 34.3056 34.0996L29.6093 32.2129C28.6314 32.9659 27.5612 33.5908 26.4248 34.0725L25.7227 39.0584C25.6834 39.2817 25.5677 39.4844 25.3955 39.632C25.2233 39.7795 25.0052 39.8626 24.7785 39.8672H17.2218C16.9992 39.8629 16.7846 39.7832 16.6131 39.6412C16.4416 39.4992 16.3234 39.3033 16.2776 39.0854L15.5754 34.0996C14.4359 33.6235 13.3649 32.9975 12.3909 32.2383L7.69465 34.125C7.48472 34.2049 7.25334 34.2082 7.04119 34.1344C6.82904 34.0606 6.64971 33.9144 6.53473 33.7214L2.75637 27.1991C2.64264 27.0043 2.60189 26.7753 2.64141 26.5532C2.68094 26.3311 2.79815 26.1303 2.97211 25.9867L6.96621 22.8596C6.88112 22.2433 6.83618 21.6221 6.83168 21C6.83508 20.3868 6.88003 19.7745 6.96621 19.1674L2.97211 16.0404C2.79815 15.8968 2.68094 15.6959 2.64141 15.4738C2.60189 15.2517 2.64264 15.0228 2.75637 14.828L6.53473 8.30484C6.64959 8.11174 6.82886 7.96532 7.04102 7.89135C7.25318 7.81738 7.48463 7.8206 7.69465 7.90043L12.3909 9.78715C13.3689 9.03414 14.439 8.4092 15.5754 7.9275L16.2776 2.94164C16.3169 2.71831 16.4325 2.51556 16.6047 2.36803C16.7769 2.22051 16.995 2.13736 17.2218 2.13281H24.7785C25.0011 2.13715 25.2156 2.21681 25.3871 2.35879C25.5586 2.50077 25.6769 2.69669 25.7227 2.91457L26.4248 7.90043C27.5658 8.37619 28.6381 9.00215 29.6134 9.76172L34.3056 7.875C34.5155 7.79509 34.7469 7.79176 34.959 7.86557C35.1712 7.93939 35.3505 8.08563 35.4655 8.27859L39.2439 14.8017C39.3576 14.9965 39.3983 15.2255 39.3588 15.4476C39.3193 15.6697 39.2021 15.8705 39.0281 16.0141L35.034 19.1412C35.1191 19.7572 35.164 20.3781 35.1686 21Z" fill="white" class=""/>
+                </svg>
+            </button>
             <div id="header__spacer"></div>
             <div class="header__textGroup">
                 <h1>TO-DO IT</h1>
@@ -49,7 +54,7 @@
     <!-- Main -->
     <main>
         <!-- Side menu -->
-        <section class="sideMenu">
+        <section class="sideMenu mobileTasksOptions mobileTempHide">
             <div class="sideMenu__buttonGroup">
                 <button id="createTask__button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
@@ -72,21 +77,23 @@
                     </div>
                 </div>
                 <button id="deleteAllTasks__button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="desktop">
                         <path d="M0.708252 3.54165H14.8749M6.37492 7.08331V10.625M9.20825 7.08331V10.625M2.12492 3.54165H13.4583L12.3391 13.6141C12.3007 13.9608 12.1358 14.2811 11.876 14.5137C11.6162 14.7464 11.2797 14.875 10.9309 14.875H4.65225C4.30349 14.875 3.96698 14.7464 3.70716 14.5137C3.44733 14.2811 3.28245 13.9608 3.24409 13.6141L2.12492 3.54165ZM4.49429 1.52077C4.60887 1.27779 4.79017 1.07239 5.01705 0.928542C5.24393 0.784689 5.50703 0.70831 5.77567 0.708313H9.8075C10.0763 0.708175 10.3395 0.784492 10.5665 0.928352C10.7935 1.07221 10.975 1.27768 11.0896 1.52077L12.0416 3.54165H3.54159L4.49429 1.52077Z" stroke="#FF7174" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     Delete completed tasks
                 </button>
             </div>
-            <h2 id="sideMenu__soonMessage">More in future versions</h2>
+            <h2 id="sideMenu__soonMessage" class="desktop">More in future versions</h2>
         </section>
 
         <!-- Main section -->
         <section class="mainSection">
+            <button id="createTaskMobile" class="createTaskMobile mobile">Create Task</button>
             <!-- Task Creator section -->
             <form action="" id="taskCreator__frame" class="taskCreator hide">
                 <div class="taskCreator__inputGroup">
-                    <input type="text" id="newTask__name" placeholder="Describe the new task. Ex: Optimize page loading">
+                    <h2 class="mobile">Task Creation</h2>
+                    <input type="text" id="newTask__name" placeholder="Describe the new task">
                     <select name="priorityLevel__selector" id="newTask__priority">
                         <option value="Nothing">Select priority</option>
                         <option value="High">High</option>
@@ -118,26 +125,9 @@
                             <h2 id="activeTask__Counter">0</h2>
                         </div>
                     </div>
-                    <h2>Priority</h2>
-                    <h2>Due date</h2>
+                    <h2  class="desktop">Priority</h2>
+                    <h2  class="desktop">Due date</h2>
                 </div>
-
-                <!-- TASK EXEMPLE -->
-                <!-- <div class="task">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6H22M10 11V16M14 11V16M4 6H20L18.42 20.22C18.3658 20.7094 18.1331 21.1616 17.7663 21.49C17.3994 21.8184 16.9244 22 16.432 22H7.568C7.07564 22 6.60056 21.8184 6.23375 21.49C5.86693 21.1616 5.63416 20.7094 5.58 20.22L4 6ZM7.345 3.147C7.50675 2.80397 7.76271 2.514 8.083 2.31091C8.4033 2.10782 8.77474 2 9.154 2H14.846C15.2254 1.99981 15.5971 2.10755 15.9176 2.31064C16.2381 2.51374 16.4942 2.80381 16.656 3.147L18 6H6L7.345 3.147Z" stroke="#FF7174" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <p class="task__name">Finish "To-Do IT" project</p>
-                    <div class="task__priorityBadge">
-                        <p class="high">High</p>
-                    </div>
-                    <p>24/12/2026</p>
-                    <div class="checkbox-wrapper-13">
-                        <input type="checkbox">
-                    </div>
-                </div> -->
             </section>
 
             <!-- Completed tasks Section -->
@@ -154,10 +144,9 @@
                             <h2 id="completedTask__Counter">0</h2>
                         </div>
                     </div>
-                    <h2>Priority</h2>
-                    <h2>Due date</h2>
+                    <h2  class="desktop">Priority</h2>
+                    <h2  class="desktop">Due date</h2>
                 </div>
-                
             </section>
 
         </section>

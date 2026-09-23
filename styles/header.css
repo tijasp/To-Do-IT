@@ -48,6 +48,14 @@ header h2 {
     height: 2.625rem;
 }
 
+#mobileParameters {
+    display: none;
+}
+
+.blackFilled {
+    fill: black;
+}
+
 .header__textGroup {
     text-align: center;
 
@@ -55,4 +63,22 @@ header h2 {
     flex-direction: column;
     justify-content: center;
     gap: 0.2rem;
+}
+
+@media screen and (max-width: 768px) {
+    #header__spacer {
+        display: none;
+    }
+
+    #mobileParameters {
+        display: block;
+    }
+
+    header h1 {
+        text-decoration: none;
+    }
+
+    header h2 {
+        display: none;
+    }
 }

@@ -1,5 +1,5 @@
 import { loadSavedSortMode, saveSortMode} from "./localstorage.js"
-import { toggleDarkMode, clearTaskCreator, updateTaskCounter, categoryDisplayer, toggleDisplay, deleteTask, deleteCompletedTasks } from "./utils.js"
+import { toggleDarkMode, clearTaskCreator, updateTaskCounter, categoryDisplayer, toggleDisplay, deleteTask, deleteCompletedTasks, displayMobileSettings } from "./utils.js"
 import { createTask, taskStatusChange } from "./taskManager.js"
 import { renderTasks } from "./taskRenderer.js"
 
@@ -114,6 +114,36 @@ function initDeleteCompletedTasks() {
     })
 }
 
+function initMobileSettings() {
+    const settingsButton = document.getElementById("mobileParameters")
+
+    settingsButton.addEventListener("click", () => {
+        displayMobileSettings()
+    })
+}
+
+function initTaskCreatorDisplayMobile() {
+    const button = document.getElementById("createTaskMobile")
+
+    button.addEventListener("click", () => {
+        clearTaskCreator()
+        toggleDisplay()
+    })
+}
+
+function windowResize() {
+    let isMobile = window.innerWidth <= 768
+
+    window.addEventListener("resize", () => {
+        const isNowMobile = window.innerWidth <= 768
+
+        if (isNowMobile !== isMobile) {
+            isMobile = isNowMobile
+            renderTasks()
+        }
+    })
+}
+
 // Run all the evenListeners of this file.
 export function initEventListeners() {
     initThemeToggler()
@@ -124,4 +154,7 @@ export function initEventListeners() {
     initTaskStatus()
     initTaskSorting()
     initDeleteCompletedTasks()
+    initMobileSettings()
+    initTaskCreatorDisplayMobile()
+    windowResize()
 }
