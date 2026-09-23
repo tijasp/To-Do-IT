@@ -86,6 +86,7 @@ function createTaskDivMobile(id, name, priority, date, status) {
     let taskCategory = ""
     const newTaskDiv = document.createElement("div")
     let checkedAttribute = ""
+    let dateStatusClass = ""
     newTaskDiv.className = "task"
     newTaskDiv.id = id
     
@@ -102,6 +103,10 @@ function createTaskDivMobile(id, name, priority, date, status) {
 
     if (priority === "Nothing") priority = ""
     if (date === "No date") date = ""
+    
+    if (taskCategory === document.getElementById("activeTasksCategory")) {
+        dateStatusClass = `class="${verifyDate(date)}"`
+    }
 
     newTaskDiv.innerHTML = `
         <button class="delete">
@@ -115,7 +120,7 @@ function createTaskDivMobile(id, name, priority, date, status) {
             <div class="task__priorityBadge">
                 <p class="${priority}">${priority}</p>
             </div>
-                <p>${date}</p>
+                <p ${dateStatusClass}>${date}</p>
             </div>
         </div>
         <div class="checkbox-wrapper-13">
