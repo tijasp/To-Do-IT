@@ -135,7 +135,7 @@ export function verifyDate(date) {
         let taskDate = convertDateFormat(date)
 
         let today = new Date()
-        today.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0)
 
         let thisWeek = new Date()
         thisWeek.setDate(thisWeek.getDate() + 7)
@@ -148,6 +148,11 @@ export function verifyDate(date) {
     } else return ""
 }
 
+export function updateStats(){
+    updateProgressBar()
+    updateDateStats()
+}
+
 // Sort tasks from highest to lowest priority.
 function sortByPriority(taskList) {
     const priorityOrder = {
@@ -155,25 +160,62 @@ function sortByPriority(taskList) {
         Low: 2,
         Medium: 3,
         High: 4
-    };
+    }
     taskList.sort((a, b) => {
-        return priorityOrder[b.priority] - priorityOrder[a.priority];
-    });
+        return priorityOrder[b.priority] - priorityOrder[a.priority]
+    })
     return taskList
 }
 
 // Sort the tasks from the nearest due date to the farthest.
 function sortByDate(taskList) {
-    const tasks = loadStoredTasks()
     taskList.sort((a, b) => {
-        return convertDateFormat(a.due_date) - convertDateFormat(b.due_date);
-    });
+        return convertDateFormat(a.due_date) - convertDateFormat(b.due_date)
+    })
     return taskList
 }
 
 // Convert due date format to sort it easier
 function convertDateFormat(date) {
-    const [day, month, year] = date.split("/");
+    const [day, month, year] = date.split("/")
     if (date === "No date") return new Date(3000, 0, 1)
-    return new Date(year, month - 1, day);
+    return new Date(year, month - 1, day)
+}
+
+function updateProgressBar() {
+    const tasks = loadStoredTasks()
+    const progressBar = document.querySelectorAll(".progress-bar")
+    const completedTasks = tasks.filter(task => task.completed === true).length
+    const progressPercent = completedTasks * 100 / tasks.length
+
+    progressBar.forEach(bar =>
+        bar.style = `width: ${progressPercent}%;`
+    )
+}
+
+function updateDateStats() {
+    const tasks = loadStoredTasks()
+    const upcomingCounter = document.getElementById("upcomingCount")
+    const overdueCounter = document.getElementById("overdueCount")
+    let upcommingCount = 0
+    let overdueCount = 0
+
+    tasks.forEach(task => {
+        if (task.completed == false) {
+            let taskDate = convertDateFormat(task.due_date)
+            let today = new Date()
+            let thisWeek = new Date()
+            today.setHours(0, 0, 0, 0)
+            thisWeek.setDate(thisWeek.getDate() + 7)
+
+            if (taskDate < today) {
+                overdueCount ++
+            } else if (taskDate <= thisWeek) {
+                upcommingCount ++
+            }
+        }
+    })
+    
+    upcomingCounter.textContent = upcommingCount
+    overdueCounter.textContent = overdueCount
 }

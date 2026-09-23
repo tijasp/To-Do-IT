@@ -1,13 +1,13 @@
 import { loadStoredTasks, loadSavedSortMode } from "./localstorage.js"
-import { sortTasks, updateTaskCounter, verifyDate } from "./utils.js"
+import { sortTasks, updateTaskCounter, verifyDate, updateStats } from "./utils.js"
 
 // Deletes and recreates all tasks based on the sorting method to ensure an up-to-date task list. And then update de task counter
 export function renderTasks() {
     let tasks = loadStoredTasks()
     let taskSortMode = loadSavedSortMode()
-    const oldTasks = document.querySelectorAll(".task");
+    const oldTasks = document.querySelectorAll(".task")
 
-    oldTasks.forEach(task => task.remove());
+    oldTasks.forEach(task => task.remove())
 
     tasks = sortTasks(taskSortMode)
 
@@ -19,8 +19,8 @@ export function renderTasks() {
                 task.priority,
                 task.due_date,
                 task.completed
-            );
-        });
+            )
+        })
     } else {
         tasks.forEach(task => {
             createTaskDiv(
@@ -29,12 +29,13 @@ export function renderTasks() {
                 task.priority,
                 task.due_date,
                 task.completed
-            );
-        });
+            )
+        })
     }
     
 
-    updateTaskCounter();
+    updateTaskCounter()
+    updateStats()
 }
 
 // Add a task to the HTML

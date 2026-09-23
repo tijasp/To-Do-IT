@@ -1,5 +1,5 @@
 import { loadSavedSortMode, saveSortMode} from "./localstorage.js"
-import { toggleDarkMode, clearTaskCreator, updateTaskCounter, categoryDisplayer, toggleDisplay, deleteTask, deleteCompletedTasks, displayMobileSettings } from "./utils.js"
+import { toggleDarkMode, clearTaskCreator, categoryDisplayer, toggleDisplay, deleteTask, deleteCompletedTasks, displayMobileSettings } from "./utils.js"
 import { createTask, taskStatusChange } from "./taskManager.js"
 import { renderTasks } from "./taskRenderer.js"
 
@@ -79,7 +79,6 @@ function initTaskStatus() {
             if (!e.target.matches('input[type="checkbox"]')) return
 
             taskStatusChange(e.target)
-            updateTaskCounter()
             renderTasks(e.target.closest("task_category"))
         })
     })
@@ -95,7 +94,7 @@ function initTaskSorting() {
 
     sortRadioButtons.forEach(radio => {
         radio.addEventListener("change", (e) => {
-            const sortingMode = e.target.id;
+            const sortingMode = e.target.id
 
             taskSortMode = sortingMode
             saveSortMode(sortingMode)

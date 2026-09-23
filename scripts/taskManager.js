@@ -27,9 +27,9 @@ export function createTask() {
             completed: false,
         }
 
-        tasks.push(newTask);
-        saveTasks(tasks);
-        renderTasks();
+        tasks.push(newTask)
+        saveTasks(tasks)
+        renderTasks()
         clearTaskCreator()
     }
 }
@@ -39,7 +39,7 @@ export function taskStatusChange(clickedCheckbox) {
     const tasks = loadStoredTasks()
     const updatedTask = clickedCheckbox.closest(".task")
     let taskID = updatedTask.id
-    const task = tasks.find(task => task.id === taskID);
+    const task = tasks.find(task => task.id === taskID)
     
     if (clickedCheckbox.checked) {
         task.completed = true
