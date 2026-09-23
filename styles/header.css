@@ -74,6 +74,10 @@ header h2 {
         display: block;
     }
 
+    .header__rowFlex {
+        padding: 0.75rem 0.5rem;
+    }
+
     header h1 {
         text-decoration: none;
     }
