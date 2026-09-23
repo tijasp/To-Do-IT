@@ -1,7 +1,7 @@
 
 #  To-Do IT 📝
 
-##  Simple interactive To-Do list website !
+##  An interactive To-Do list website !
 
 ![To-Do-IT](https://socialify.git.ci/tijasp/To-Do-IT/image?custom_language=JavaScript&font=Source+Code+Pro&forks=1&issues=1&language=1&name=1&owner=1&pattern=Charlie+Brown&pulls=1&stargazers=1&theme=Auto)
 ## Feel free to give a star ⭐ !
